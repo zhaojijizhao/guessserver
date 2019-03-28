@@ -12,8 +12,14 @@ require(['/js/public/base.js'],function(Base){
           {
             path:'/index', component: layout,
             children: [
-              { path:'sign', component: sign},
-              { path:'', redirect: 'sign' }
+              { path:'homepage', component: homepage},
+              { path:'regist', component: regist},
+              { path:'nav', component: nav},
+              { path:'expo', component: expo},
+              { path:'map', component: map},
+              { path:'survey', component: survey},
+              { path: 'game', component: game},
+              { path:'', redirect: 'homepage' }
             ]
           },
           { path:'/', redirect: '/index' }
