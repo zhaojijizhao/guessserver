@@ -1,0 +1,21 @@
+<div class="main">
+  <div class="login">
+    <div class="title">
+      <div class="sup">一起竞猜吧</div>
+      <div class="sub">后台管理系统</div>
+    </div>
+    <div class="form">
+        <div class="line">
+          <label>用户名:</label>
+          <input v-model="name" placeholder="请输入用户名"/>
+        </div>
+        <div class="line">
+          <label>密码:</label>
+          <input v-model="psw" type="password" placeholder="请输入密码"/>
+        </div>
+        <div class="line">
+          <button @click="login">登录</button>
+        </div>
+    </div>
+  </div>
+</div>

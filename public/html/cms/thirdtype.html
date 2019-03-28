@@ -1,0 +1,54 @@
+<div class="main">
+  <div>
+    <label>一级分类</label>
+    <select v-model="filter.firsttype">
+      <option value="0">请选择</option>
+      <option v-for="option in options.firsttypelist" :value="option.num"  >{{option.name}}</option>
+    </select>&nbsp;
+    <label>二级分类</label>
+    <select v-model="filter.secondtype">
+      <option value="0">请选择</option>
+      <option v-for="option in options.secondtypelist"
+        v-show="isshowfiltersecond(option)"
+        :value="option.num"  >{{option.name}}</option>
+    </select>
+  </div>
+  <br/>
+  <table>
+    <thead>
+      <tr>
+        <td v-for="(item, index) in tablehead">{{item.name}}</td>
+        <td>操作</td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr v-for="thirdtype in thirdtypelist"
+        v-show="isshow(thirdtype)">
+        <td v-for="(item, index) in tablehead">
+          <template v-if="!item.type">
+            <input type="text" v-model="thirdtype[item.key]" :disabled="!(item.edit && thirdtype.edit)">
+          </template>
+          <template v-if="item.type=='select'">
+            <select v-model="thirdtype[item.key]" :disabled="!(item.edit && thirdtype.edit)">
+              <option v-for="(v, k) in options[item.option]"
+                v-show="item.change ? item.change(thirdtype,v) : true"
+                :value="v.num"
+                >{{v.name}}</option>
+            </select>
+          </template>
+          <template v-if="item.type=='date'">
+            <span>{{new Date(thirdtype[item.key]||new Date()).toLocaleString()}}</span>
+          </template>
+        </td>
+        <td>
+          <a @click="change(thirdtype)">修改</a>
+          <a @click="save(thirdtype)">保存</a>
+          <a @click="remove(thirdtype)">删除</a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <div>
+    <a class="btn" @click="newitem">添加新三级分类</a>
+  </div>
+</div>

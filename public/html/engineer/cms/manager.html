@@ -1,0 +1,42 @@
+<div class="main">
+  站点目前还在开发中
+  <!--<table>
+    <thead>
+      <tr>
+        <td v-for="(item, index) in tablehead">{{item.name}}</td>
+        <td>操作</td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr v-for="manager in managerlist">
+        <td v-for="(item, index) in tablehead">
+          <template v-if="!item.type">
+            <input type="text" v-model="manager[item.key]" :disabled="!(item.edit && manager.edit)">
+          </template>
+          <template v-if="item.type=='date'">
+            <span>{{new Date(manager[item.key]||new Date()).toLocaleString()}}</span>
+          </template>
+        </td>
+        <td>
+          <a @click="change(manager)">修改</a>
+          <a @click="save(manager)">保存</a>
+          <a @click="remove(manager)">删除</a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="pager">
+    <div class="page" @click="page('start')">第一页</div>
+    <div v-if="pager.page >3">...</div>
+    <div class="page" @click="page(-2)" v-if="pager.page >2">{{pager.page-2}}</div>
+    <div class="page" @click="page(-1)" v-if="pager.page >1">{{pager.page-1}}</div>
+    <div class="page now" @Click="page(0)">{{pager.page}}</div>
+    <div class="page" @click="page(1)" v-if="pager.page <Math.ceil(pager.total/pager.limit)">{{pager.page+1}}</div>
+    <div class="page" @click="page(2)" v-if="pager.page <Math.ceil(pager.total/pager.limit)-1">{{pager.page+2}}</div>
+    <div v-if="pager.page < (Math.ceil(pager.total/pager.limit)-2)">...</div>
+    <div class="page" @click="page('end')">最后页</div>
+  </div>
+  <div>
+    <a class="btn" @click="newitem">添加新管理员</a>
+  </div>-->
+</div>

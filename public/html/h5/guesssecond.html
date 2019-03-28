@@ -1,0 +1,5 @@
+<div class="menu-list">
+  <router-link v-for="(v, k) in list" :to="'../guesslist/'+v.num" :class="{disable:v.off}">
+    {{v.name}}
+  </router-link>
+</div>

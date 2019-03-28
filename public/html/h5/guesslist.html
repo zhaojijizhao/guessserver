@@ -1,0 +1,14 @@
+<div><ul class="guess-list">
+  <li>
+    <h2 class="guess-title">竞猜列表</h2>
+    <ul class="problem-list">
+      <li v-for="(v,k) in list">
+        <div class="problem-title">{{v.name}}</div>
+        <div class="problem-sub">{{v.date}}</div>
+        <router-link :to="'../guessdetail/'+v.num">
+          打开
+        </router-link>
+      </li>
+    </ul>
+  </li>
+</ul></div>

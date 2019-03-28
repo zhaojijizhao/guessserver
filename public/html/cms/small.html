@@ -1,0 +1,10 @@
+<div class="main">
+  <div>
+    <p>生成用户：{{hasuser?'运行中':'未运行'}}</p>
+    <p>自动答题：{{hasguess?'运行中':'未运行'}}</p>
+    <a class="btn" @click="startuser">开始新增用户1000</a>
+    <a class="btn" @click="stopuser">停止新增用户</a>
+    <a class="btn" @click="startguess">开始自动答题</a>
+    <a class="btn" @click="stopguess">停止自动答题</a>
+  </div>
+</div>

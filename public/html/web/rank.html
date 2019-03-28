@@ -1,0 +1,29 @@
+<div class="rank">
+  <div class="rank-line">本排行榜榜单为当天24内的数据，每天凌晨重新刷新数据！</div>
+  <table class="rank-table">
+    <thead>
+      <tr>
+        <td colspan="3">消费点数排行版</td>
+        <td colspan="3">胜率排行榜</td>
+      </tr>
+      <tr>
+        <td>排名</td>
+        <td>用户号码</td>
+        <td>消费点数</td>
+        <td>排名</td>
+        <td>用户号码</td>
+        <td>胜率</td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr v-for="v,k in range" v-if="coinlist[k]">
+        <td>{{v}}</td>
+        <td>{{cellhide(coinlist[k].cell)}}</t>
+        <td>{{coinlist[k].coin}}</td>
+        <td>{{v}}</td>
+        <td>{{cellhide(ratelist[k].cell)}}</td>
+        <td>{{ratelist[k].rate}}%</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

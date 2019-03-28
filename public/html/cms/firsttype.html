@@ -1,0 +1,30 @@
+<div class="main">
+  <table>
+    <thead>
+      <tr>
+        <td v-for="(item, index) in tablehead">{{item.name}}</td>
+        <td>操作</td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr v-for="firsttype in firsttypelist">
+        <td v-for="(item, index) in tablehead">
+          <template v-if="!item.type">
+            <input type="text" v-model="firsttype[item.key]" :disabled="!(item.edit && firsttype.edit)">
+          </template>
+          <template v-if="item.type=='date'">
+            <span>{{new Date(firsttype[item.key]||new Date()).toLocaleString()}}</span>
+          </template>
+        </td>
+        <td>
+          <a @click="change(firsttype)">修改</a>
+          <a @click="save(firsttype)">保存</a>
+          <a @click="remove(firsttype)">删除</a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <div>
+    <a class="btn" @click="newitem">添加一级分类</a>
+  </div>
+</div>

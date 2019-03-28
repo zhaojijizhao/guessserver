@@ -1,0 +1,42 @@
+<div class="mainin">
+  <div class="info">
+    <div class="time">{{timestr}}</div>
+    <div class="input">
+      <template v-if="!user">
+        <span>用户名：</span>
+        <span><input v-model="login.cell" /></span>
+        <span>密 码：</span>
+        <span><input type="password" v-model="login.psw" /></span>
+        <input type="checkbox" v-model="login.remember" checked />记住密码&nbsp;&nbsp;
+        <button class="login-btn" @click="login">登陆</button>&nbsp;&nbsp;
+        <a href="#/index/sign">立即注册</a>
+      </template>
+      <template v-if="user">
+        <span>您好：</span>
+        <span>{{user.cell}}</span>
+        &nbsp;&nbsp;
+        <a href="#/index/search">查询</a>
+        &nbsp;&nbsp;
+        <span class="out-btn" @click="logout">退出</span>
+      </template>
+    </div>
+  </div>
+  <div class="content">
+    <ul class="tabline">
+      <li @click="tohome" :class="!onclass ? 'on' : ''">本站与竞猜</li>
+      <li v-for="item, key in mainlist" @click="toguessmenu(item.num)" :class="onclass == item.num ? 'on' : ''">{{item.name}}<i>{{item.count}}+</i></li>
+      <!-- <li>本站与竞猜<i>99+</i></li>
+      <li>热门竞猜<i>99+</i></li>
+      <li>新增竞猜<i>99+</i></li>
+      <li>体育赛事<i>99+</i></li>
+      <li>文化娱乐<i>99+</i></li>
+      <li>时事经济<i>99+</i></li> -->
+      <li class="sp" @click="sp"><span>更多精彩</span></li>
+    </ul>
+    <ul class="type-list" v-if="showList">
+      <li v-for="item, key in secondlist" :class="secondid == item.num ? 'on' : '' " @click="changeguesslist(item.num)">{{item.name}}</li>
+    </ul>
+    <br/>
+    <router-view :user="user" :secondlist="secondlist" :secondid="secondid"></router-view>
+  </div>
+</div>

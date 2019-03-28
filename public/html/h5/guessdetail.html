@@ -1,0 +1,66 @@
+<div class="detail">
+  <div class="detail-info">
+    <input type="hidden" id="detailid" :value="detail.num" />
+    <div class="first">{{detail.name}}</div>
+    <div class="second">第<span>{{detail.round}}</span>轮</div>
+    <div class="third" v-if="detail.updated_at">{{new Date(detail.updated_at).toLocaleDateString()}}</div>
+  </div>
+  <ul class="detail-data">
+    <li>
+      <div class="tip">单次所需点数</div>
+      <div class="number">{{detail.perpoint}}</div>
+    </li>
+    <li>
+      <div class="tip">有效人次</div>
+      <div class="number">{{detail.times}}</div>
+    </li>
+    <li>
+      <div class="tip">奖池总点数</div>
+      <div class="number">{{detail.totalpoint}}</div>
+    </li>
+  </ul>
+  <ul class="detail-state">
+    <li>
+      <div class="label">状态</div>
+      <div class="content">{{detail.state}}</div>
+    </li>
+    <li>
+      <div class="label">截止时间</div>
+      <div class="content" v-if="detail.date">{{new Date(detail.date).toLocaleDateString()}}</div>
+    </li>
+  </ul>
+  <div class="detail-intro">
+    <div class="intro">
+      {{detail.intro}}
+    </div>
+    <div class="recent">
+      {{tip || detail.optiontips[0]}}
+    </div>
+  </div>
+  <form class="detail-guess" id="J_guess">
+    <div class="option">
+      <div class="title">{{detail.question}}</div>
+      <div class="choose">
+        <i class="left-btn icon"></i>
+        <i class="right-btn icon"></i>
+        <div class="area" id="J_area">
+          <ul>
+            <li v-for="(v, k) in detail.options" :data-id="k">{{v}}</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="pit">
+      <span class="tip">选择您竞猜的次数</span>
+      <div class="pit-input">
+        <i class="minus-btn icon" id="J_minus"></i>
+        <i class="add-btn icon" id="J_add"></i>
+        <input type="tel" id="pit" value="1" />
+      </div>
+    </div>
+    <button class="submit" id="J_submit">
+      <i class="right-btn icon"></i>
+      <span>确认</span>
+    </button>
+  </form>
+</div>

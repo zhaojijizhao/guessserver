@@ -1,0 +1,51 @@
+<div class="main">
+  <div class="twopage">
+    <div style="margin-right: 10px">
+    	<p>竞猜主页</p>
+      <br/>
+      <p>标题：</p>
+    	<input type="text" v-model="content.guess.title"/>
+      <br/>
+      <p>第一部分内容：</p>
+      <input style="width:200px" type="text" v-model="imglist[0]" />&nbsp;<button @click="insertimg(0)">插入图片</button>
+    	<textarea v-model="content.guess.content[0]" @input="input(0)"></textarea>
+      <br/>
+      <p>第二部分内容：</p>
+      <input style="width:200px" type="text" v-model="imglist[1]" />&nbsp;<button @click="insertimg(1)">插入图片</button>
+    	<textarea v-model="content.guess.content[1]" @input="input(1)"></textarea>
+    </div>
+    <div>
+      <pre v-html="content.guess.title"></pre>
+      <br/>
+      <br/>
+      <pre v-html="content.guess.content[0]"></pre>
+      <br/>
+      <br/>
+      <br/>
+      <pre v-html="content.guess.content[1]"></pre>
+    </div>
+  </div>
+  <div class="twopage">
+     <div style="margin-right: 10px">
+    	<p>购物主页</p>
+    	<br/>
+      <p>标题：</p>
+      <input type="text" v-model="content.shop.title"/>
+      <br/>
+      <p>内容：</p>
+      <input style="width:200px" type="text" v-model="imglist[2]" />&nbsp;<button @click="insertimg(2)">插入图片</button>
+    	<textarea v-model="content.shop.content[0]" @input="input(2)"></textarea>
+    </div>
+    <div>
+      <pre v-html="content.shop.title"></pre>
+      <br/>
+      <br/>
+      <pre  v-html="content.shop.content[0]"></pre>
+    </div>
+  </div>
+  <div>
+    <center>
+      <a class="btn" @click="save()">保存</a>
+    </center>
+  </div>
+</div>

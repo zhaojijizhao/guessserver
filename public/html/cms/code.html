@@ -1,0 +1,33 @@
+<div class="main">
+  <table>
+    <thead>
+      <tr>
+        <td v-for="(item, index) in tablehead">{{item.name}}</td>
+        <td>操作</td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr v-for="code in codelist">
+        <td v-for="(item, index) in tablehead">
+          <template v-if="!item.type">
+            <input type="text" v-model="code[item.key]" :disabled="!(item.edit && code.edit)">
+          </template>
+          <template v-if="item.type=='date'">
+            <span>{{new Date(code[item.key]||new Date()).toLocaleString()}}</span>
+          </template>
+        </td>
+        <td>
+          <!-- <a @click="change(code)">修改</a>
+          <a @click="save(code)">保存</a> -->
+          <a @click="remove(code)">删除</a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <!-- <div>
+    <a class="btn" @click="newitem">添加新用户</a>
+  </div> -->
+  <div>
+    <a class="btn" @click="create">生成一个激活码</a>
+  </div>
+</div>

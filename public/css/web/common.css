@@ -1,0 +1,701 @@
+@charset "utf-8";
+/*--base style--*/
+*{margin:0;padding:0;
+-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+-webkit-touch-callout: none;}
+body{
+  color:#333;
+  font-size: 14px;
+  line-height: 1.5;
+}
+body,input,textarea,button{
+  font:12px/1.5 "Microsoft Yahei",arial,sans-serif;
+  -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+}
+li{list-style-type: none;}
+a{text-decoration: none;color: #666;}
+pre { white-space: pre-line; }
+/*--common style--*/
+.hide{
+  display: none !important;
+}
+.fl{
+  float:left;
+}
+.fr{
+  float: right;
+}
+.f1{
+  flex: 1;
+}
+.tc{
+  text-align: center;
+}
+
+.guessout {
+  background-color: rgb(239, 240, 241);
+}
+.guessout .top {
+  width: 100%;
+  border-top: 3px solid rgb(240,82,50);
+  background-color: #fff;
+}
+.guessout .top .topin{
+  padding: 5px 0;
+  margin: 0 auto;
+  width: 1020px;
+  display: flex;
+  justify-content: space-between;
+}
+.guessout .top .banner {
+  width: 339px;
+  height: 125px;
+  background-image: url('../../img/web/img_logo.gif');
+}
+.guessout .top .slide {
+  width: 582px;
+  height: 120px;
+  overflow: hidden;
+}
+.guessout .top .slidein {
+  width: 400%;
+  height: 100%;
+  display: flex;
+  -webkit-animation: slide 8s linear infinite;
+  animation: slide 8s linear infinite;
+}
+.guessout .top .slidein img{
+  display: block;
+  width: 25%;
+  height: 100%;
+}
+@keyframes slide{
+  0% {
+    transform: translate(0, 0);
+  }
+  20% {
+    transform: translate(0, 0);
+  }
+  25% {
+    transform: translate(-25%, 0);
+  }
+  45% {
+    transform: translate(-25%, 0);
+  }
+  50% {
+    transform: translate(-50%, 0);
+  }
+  70% {
+    transform: translate(-50%, 0);
+  }
+  75% {
+    transform: translate(-75%, 0);
+  }
+  95% {
+    transform: translate(-75%, 0);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+table{
+  border-collapse: collapse;
+}
+.rank-table{
+  margin: 10px 0;
+  border: 1px solid #999;
+  text-align: center;
+  width: 100%;
+}
+.rank-table td{
+  border: 1px solid #999;
+  height: 42px;
+}
+.rank-table thead td{
+  background-color: #ddd;
+}
+.rank-table tbody tr:nth-child(odd) td{
+  background-color: #f5f5f5;
+}
+.rank-line{
+  padding: 0 10px;
+  font-size: 16px;
+  line-height: 42px;
+}
+
+.guessout .foot {
+  width: 100%;
+}
+.guessout .footlink {
+  padding: 10px 0;
+  text-align: center;
+}
+.guessout .footlink a{
+  color: #666;
+}
+.guessout .footlink a:after {
+  content: '|';
+  margin: 0 5px;
+}
+.guessout .footlink a:last-child:after {
+  content: '';
+  margin: 0;
+}
+.guessout .footintro {
+  text-align: center;
+  color: #fff;
+  line-height: 24px;
+  background-color: rgb(240,82,50);
+}
+.guessout .main {
+  width: 100%;
+}
+.guessout .main .mainin{
+  margin: 0 auto;
+  width: 1020px;
+}
+.guessout .main .info {
+  padding: 10px 0;
+}
+.guessout .main .mainin > .info {
+  display: flex;
+}
+.guessout .main .info .time {
+  flex: 1;
+}
+.guessout .main .info .input {
+
+}
+.guessout .main .content {
+  padding: 5px 2px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #fff;
+  min-height: 600px;
+}
+.guessout .pop {
+  position: fixed;
+  z-index: 99;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0,0,0,0.2);
+}
+.guessout .pop .popin {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  padding: 15px;
+  background-color: #fff;
+  border-radius: 5px;
+}
+.guessout .pop .popin p{
+  text-indent: 2em;
+  font-size: 14px;
+  line-height: 32px;
+}
+.guessout .pop .popin button{
+  color: #fff;
+  width: 80px;
+  display: block;
+  margin: 0 auto;
+  font-size: 16px;
+  line-height: 1.5;
+  background-image: -webkit-linear-gradient(top,rgb(245, 87, 52), rgb(226, 53, 21));
+  background-image: linear-gradient(top,rgb(245, 87, 52), rgb(226, 53, 21));
+  border: 1px solid rgb(229, 119, 90);
+  border-radius: 3px;
+  cursor: pointer;
+}
+.guessout .main .content .form {
+
+}
+.guessout .main .content .form .form-line {
+  width: 500px;
+  margin: 30px auto;
+  display: flex;
+}
+.guessout .main .content .form .form-line label {
+  width: 100px;
+  text-align: right;
+  padding-right: 10px;
+}
+.guessout .main .content .form .form-line span {
+  cursor: pointer;
+}
+.guessout .main .content .form .form-line span:hover {
+  text-decoration: underline;
+}
+.guessout .main .content .form .form-line button{
+  color: #fff;
+  width: 120px;
+  font-size: 20px;
+  line-height: 1.5;
+  background-image: -webkit-linear-gradient(top,rgb(245, 87, 52), rgb(226, 53, 21));
+  background-image: linear-gradient(top,rgb(245, 87, 52), rgb(226, 53, 21));
+  border: 1px solid rgb(229, 119, 90);
+  border-radius: 3px;
+  cursor: pointer;
+}
+.guessout .main .content .form .form-line button[disabled] {
+  background-color: #ccc;
+  background-image: none;
+  border: 1px solid #ccc;
+  cursor: default;
+}
+.guessout .main .content .tabline {
+  display: flex;
+  border-bottom: 1px solid #ccc;
+}
+.guessout .main .content .tabline li {
+  width: 180px;
+  text-align: center;
+  display: inline-block;
+  line-height: 34px;
+  border: 1px solid transparent;
+  border-bottom: none;
+  cursor: pointer;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+  box-sizing: border-box;
+}
+.guessout .main .content .tabline li.on i,
+.guessout .main .content .tabline li:hover i{
+  color: #f60;
+  -webkit-box-reflect: below 0 -webkit-linear-gradient(top, rgba(0,0,0,0) 80%,rgba(0,0,0,0) 100%);
+}
+.guessout .main .content .tabline li i {
+  margin-left: 20px;
+  display: inline-block;
+  width: 22px;
+  height: 22px;
+  line-height: 22px;
+  text-align: center;
+  font-style: normal;
+  color: #f60;
+  background-image: -webkit-linear-gradient(top, #fff, rgb(218, 218, 219));
+  background-image: linear-gradient(top, #fff, rgb(218, 218, 219));
+  border-radius: 30px;
+  border: 1px solid #ccc;
+  -webkit-box-reflect: below 0 -webkit-linear-gradient(top, rgba(0,0,0,0) 80%,rgba(0,0,0,1) 100%);
+}
+.guessout .main .content .tabline li:after{
+  content: '';
+  display: inline-block;
+  height: 20px;
+  margin-top: 7px;
+  border-right: 1px dotted #ccc;
+  float: right;
+}
+.guessout .main .content .tabline li.on,
+.guessout .main .content .tabline li:hover{
+  color: #fff;
+  border: 1px solid rgb(229, 119, 90);
+  border-bottom: none;
+  background-image: -webkit-linear-gradient(top,rgb(245, 87, 52), rgb(226, 53, 21));
+  background-image: linear-gradient(top,rgb(245, 87, 52), rgb(226, 53, 21));
+}
+.guessout .main .content .tabline li.on:after,
+.guessout .main .content .tabline li:hover:after{
+  display: none;
+}
+.guessout .main .content .tabline li.sp,
+.guessout .main .content .tabline li.sp:hover {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  color: #333;
+  border: none;
+}
+.guessout .main .content .tabline li.sp:after {
+  display: none;
+}
+.guessout .main .content .tabline li.sp span {
+  display: block;
+  width: 100px;
+  height: 24px;
+  line-height: 24px;
+  border-radius: 2px;
+  border: 1px solid #ccc;
+  background-image: -webkit-linear-gradient(top,rgb(255, 255, 255), rgb(240, 240, 240));
+  background-image: linear-gradient(top,rgb(255, 255, 255), rgb(240, 240, 240));
+}
+.guessout .main .content .tabline li.sp span:hover {
+  background-image: -webkit-linear-gradient(top,rgb(255, 255, 255), rgb(220, 220, 220));
+  background-image: linear-gradient(top,rgb(255, 255, 255), rgb(220, 220, 220));
+}
+.guessout .main .content .type-list {
+  display: flex;
+  padding: 2px;
+  margin: 10px;
+  background-color: #fbfbfb;
+  border: 1px solid #eee;
+}
+.guessout .main .content .type-list li {
+  position: relative;
+  margin-right: 12px;
+  padding: 0 8px;
+  line-height: 20px;
+  color: rgb(47, 97, 174);
+  border: 1px solid transparent;
+  cursor: pointer;
+}
+.guessout .main .content .type-list li.on,
+.guessout .main .content .type-list li:hover {
+  color: #fff;
+  background-color: rgb(38, 94, 171);
+  border: 1px solid rgb(0, 62, 153);
+}
+.guessout .main .content .type-list li:after {
+  content: "";
+  display: block;
+  position: absolute;
+  z-index: 1;
+  right: -7px;
+  top: 4px;
+  width: 1px;
+  height: 14px;
+  background-color: #333;
+}
+.guessout .main .content .guess {
+  margin: 0 10px 10px 10px;
+}
+.guessout .main .content .guess-block {
+  margin-bottom: 30px;
+  width: 100%;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+.guessout .main .content .guess-headline {
+  font-size: 14px;
+  height: 32px;
+  line-height: 32px;
+  text-align: center;
+  border-bottom: 1px solid #ccc;
+  background-image: -webkit-linear-gradient(top,rgb(255, 255, 255), rgb(220, 220, 220));
+  background-image: linear-gradient(top,rgb(255, 255, 255), rgb(220, 220, 220));
+}
+.guessout .main .content .guess-item {
+  padding: 0 10px;
+}
+.guessout .main .content .guess-item:nth-child(2n+1){
+  background-color: #eee;
+}
+.guessout .main .content .guess-item:nth-child(2n){
+  background-color: #fff;
+}
+.guessout .main .content .guess-item:hover{
+  background-color: rgb(226, 211, 187);
+}
+.guessout .main .content .title-line {
+  padding: 10px 0;
+  line-height: 20px;
+  display: flex;
+}
+.guessout .main .content .title-line span{
+  flex: 1;
+  padding: 0 5px;
+}
+.guessout .main .content .title-line span:last-child{
+  display: flex;
+  flex: none;
+  width: 70px;
+  align-items: flex-end;
+  flex-direction: column;
+}
+.guessout .main .content .title-line span button {
+  color: #fff;
+  width: 60px;
+  background-image: -webkit-linear-gradient(top,rgb(245, 87, 52), rgb(226, 53, 21));
+  background-image: linear-gradient(top,rgb(245, 87, 52), rgb(226, 53, 21));
+  border: 1px solid rgb(229, 119, 90);
+  border-radius: 3px;
+  cursor: pointer;
+}
+.guessout .main .content .content-area {
+  // height: 0px;
+  // overflow: hidden;
+  border-top: 1px solid #ccc;
+  padding: 5px 0;
+}
+.guessout .main .content .content-area .info {
+  padding: 5px;
+  white-space: pre-line;
+}
+.guessout .main .content .content-area .choose {
+  display: flex;
+  align-items: center;
+  justify-content:center;
+  padding: 10px 0;
+  border-top: 1px solid #ccc;
+}
+.guessout .main .content .content-area .choose:last-child {
+  border-bottom: 1px solid #ccc;
+}
+.guessout .main .content .content-area .choose span{
+  flex: 1;
+  padding: 0 5px;
+}
+.guessout .main .content .content-area .choose span:last-child{
+  display: flex;
+  flex: none;
+  width: 100px;
+  align-items: flex-end;
+  flex-direction: column;
+}
+.guessout .main .content .content-area .choose span button {
+  color: #fff;
+  width: 70px;
+  background-image: -webkit-linear-gradient(top,rgb(248, 135, 40), rgb(229, 109, 39));
+  background-image: linear-gradient(top,rgb(248, 135, 40), rgb(229, 109, 39));
+  border: 1px solid rgb(229, 119, 90);
+  border-radius: 3px;
+  cursor: pointer;
+}
+.blue {
+  color: rgb(47, 97, 174);
+}
+.out-btn {
+  color: #f60;
+  cursor: pointer;
+}
+.guess-p {
+  padding: 20px 10px;
+  line-height: 32px;
+  font-size: 14px;
+}
+.guess-p .info.t{
+  font-size: 18px;
+}
+.guess-p .info {
+  border-bottom: 1px solid #ccc;
+}
+.elec {
+  padding: 20px;
+}
+.elec .elec-cotent {
+  border: 1px solid #ccc;
+}
+.elec .elec-cotent .t {
+  border-bottom: 1px solid #ccc;
+}
+.elec .elec-cotent .banner {
+  width: 100%;
+  height: 80px;
+}
+.elec .elec-cotent select {
+  width: 180px;
+}
+.elec .elec-cotent .t1{
+  display: flex;
+  background-color: #eee;
+  padding: 0 10px;
+}
+.elec .elec-cotent .t1 select {
+  margin-top: 5px;
+  margin-right: 280px;
+  margin-bottom: 5px;
+}
+.elec .elec-cotent .t1 div{
+  padding: 5px 50px;
+  height: 23px;
+  line-height: 23px;
+  cursor: pointer;
+  border-left: 1px solid #ccc;
+}
+.elec .elec-cotent .t1 div:hover,
+.elec .elec-cotent .t1 div.on{
+  background-color: #fff;
+}
+.elec .elec-cotent .t1 div:last-child{
+  border-right: 1px solid #ccc;
+}
+.elec .elec-cotent .t2 {
+  display: flex;
+}
+.elec .elec-cotent .t2 div {
+  flex: 1;
+  text-align: center;
+  line-height: 32px;
+  background-color: rgb(251,238,237)
+}
+.elec .elec-cotent .t2 div:last-child{
+  border-left: 1px solid #ccc;
+}
+.elec .elec-cotent .t3 {
+  display: flex;
+}
+.elec .elec-cotent .t3 div {
+  flex: 1;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.elec .elec-cotent .t3 img {
+  width: 150px;
+}
+.elec .elec-cotent .t3 span:nth-child(2) {
+  display: block;
+  margin-top: 15px;
+}
+.elec .elec-cotent .t3 span:nth-child(3) {
+  display: block;
+  color: #ccc;
+}
+.elec .elec-cotent .t3 .red{
+  color: #f60;
+}
+.elec .elec-cotent .t4 {
+  padding: 20px;
+  background-color: #eee;
+}
+.elec .elec-cotent .t4>div {
+  display: flex;
+  margin: 20px 0;
+}
+.elec .elec-cotent .t4>div input {
+  flex: 1;
+  border: 1px solid #ccc;
+}
+.elec .elec-cotent .t4 table {
+  border-collapse: collapse;
+  border-bottom: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  width: 100%;
+}
+.elec .elec-cotent .t4 table tr {
+  border-bottom: 1px solid #ccc;
+}
+.elec .elec-cotent .t4 table td {
+  padding: 10px 0;
+  text-align: center;
+  font-size: 12px;
+}
+.elec .elec-cotent .ttd {
+  display: block;
+  margin-top: -15px !important;
+  padding-left: 225px;
+}
+.elec .elec-cotent .ttdd {
+  display: block !important;
+  margin-top: -15px !important;
+  padding-left: 200px;
+}
+.elec .elec-cotent .bottom {
+  padding: 50px 10px;
+}
+.elec .elec-cotent .bottom p{
+  padding: 0 20px;
+  color: #f60;
+}
+.elec .elec-cotent .bottom .b {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.elec .elec-cotent .bottom img {
+  margin: 0 20px;
+  display: block;
+  width: 110px;
+  height: 50px;
+  
+}
+.law{
+  padding: 10px;
+}
+.bd {
+  width: 100%;
+}
+.bd td{
+  word-break: break-all;
+  border: 1px solid #999;
+  padding: 5px;
+}
+.tdd >div {
+  font-size: 16px;
+  border-bottom: 1px solid #999;
+}
+.basket{
+
+}
+.basketitem{
+  display: flex;
+  vertical-align: center;
+  align-items: center;
+  background-color: #f5f5f5;
+  border-radius: 10px;
+  padding: 5px;
+  margin: 10px 0;
+}
+.basketitem>div:nth-child(1){
+  text-align: center;
+  width: 30px;
+  margin-right: 10px;
+}
+.basketitem>div:nth-child(2){
+  text-align: center;
+  width: 150px;
+  margin-right: 10px;
+}
+.basketitem>div:nth-child(3){
+  flex: 1;
+}
+.basketitem img{
+  width: 100px;
+}
+.basketitem .cal{
+  background-color: #fff;
+  display: inline-block;
+  border-collapse: collapse;
+}
+.basketitem .cal div{
+  margin: 0;
+  float: left;
+  display: inline-block;
+  text-align: center;
+  border:1px solid #ddd;
+  padding: 0 10px;
+  cursor: pointer;
+}
+.basketitem .cal div:nth-child(1){
+  border-right: 0;
+  border-bottom-left-radius: 5px;
+  border-top-left-radius: 5px;
+}
+.basketitem .cal div:nth-child(3){
+  border-left: 0;
+  border-bottom-right-radius: 5px;
+  border-top-right-radius: 5px;
+}
+.basketall{
+  display: flex;
+  background-color: #f5f5f5;
+  border-radius: 10px;
+  padding: 10px 20px;
+  margin: 10px 0;
+  justify-content: center;
+  align-items: center;
+}
+.basketall>div{
+  flex: 1;
+}
+.basketall>div:nth-child(2){
+  text-align: right;
+}
+.basketall>div button{
+  width: 60px;
+  height: 32px;
+  border-radius: 3px;
+  cursor: pointer;
+}
+.basketall>div span{
+  color: #ccc;
+}

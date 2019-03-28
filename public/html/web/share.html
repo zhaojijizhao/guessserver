@@ -1,0 +1,75 @@
+<div class="guessout">
+  <div class="top">
+    <div class="topin">
+      <a href="#" class="banner"></a>
+    </div>
+  </div>
+  <div class="main">
+
+    <div class="content">
+      <div class="guess">
+        <div class="guess-block">
+          <div class="guess-item">
+            <div class="title-line">
+              <span>{{item.name}}</span>
+              <span>第 {{item.round}} 轮</span>
+              <!-- <span>参与人数 {{item.person}}</span> -->
+              <!-- <span>奖池总点数 {{item.}}</span> -->
+              <span>
+                <button class="btn-join" @click="changeShow(item)">参与</button>
+              </span>
+            </div>
+            <div class="content-area" v-show="item">
+              <p class="info">{{item.intro}}</p>
+              <p class="choose">
+                <span>参与人次</span>
+                <span>
+                  {{item.times}}
+                </span>
+                <span>奖池点数</span>
+                <span>
+                  {{item.totalpoint}}
+                </span>
+                <span>额外奖励</span>
+                <span>
+                  {{item.awardpoint}}
+                </span>
+                <span>额外奖励模式</span>
+                <span>
+                  {{awardtypes[item.awardtype]}}
+                </span>
+              </p>
+              <p class="choose">
+                <span>竞猜选项</span>
+                <span>
+                  {{item.question}}
+                  <select @change="changeChoose($event,k, key)">
+                    <option v-for="v,k in item.options">
+                      {{v}}
+                    </option>
+                  </select>
+                </span>
+                <span>竞猜所需点数：{{item.perpoint}}/次</span>
+                <span>
+                  选择：
+                  <input v-model="item.choose" />
+                  次
+                </span>
+                <span>
+                  <button @click="submit(item)">确认</button>
+                </span>
+              </p>
+              <p class="info">{{(item.option && item.option.optiontip) || (item.optiontips || [])[0]}}</p>
+            </div>
+          </div>
+          <br/>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="foot"><div class="footlink"><a href="#/index/contact">联系我们</a> <a href="#/index/corwork">商务合作</a> <a href="#/index/law">法律声明</a></div> <div class="footintro"><div><a style="color:white;text-decoration:underline" href="http://www.miitbeian.gov.cn">
+  copyright@上海盖势电子商务有限公司 2018 沪ICP备18008970号
+  </a></div> <div style="background-color: white; padding: 10px 0;"><a style="color:#999;text-decoration:underline;" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=310104031200">
+  沪公网安备310104031200号&nbsp;
+  <img src="../../img/web/police.png" style="width: 100px;vertical-align: middle;"></a></div></div></div>
+  </div>

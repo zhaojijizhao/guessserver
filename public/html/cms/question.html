@@ -1,0 +1,151 @@
+<div class="main">
+  <div>
+    <label>一级分类</label>
+    <select v-model="filter.firsttype">
+      <option value="0">请选择</option>
+      <option v-for="option in options.firsttypelist" :value="option.num"  >{{option.name}}</option>
+    </select>&nbsp;
+    <label>二级分类</label>
+    <select v-model="filter.secondtype">
+      <option value="0">请选择</option>
+      <option v-for="option in options.secondtypelist"
+        v-show="isshowfiltersecond(option)"
+        :value="option.num"  >{{option.name}}</option>
+    </select>&nbsp;
+    <label>三级分类</label>
+    <select v-model="filter.thirdtype">
+      <option value="0">请选择</option>
+      <option v-for="option in options.thirdtypelist"
+        v-show="isshowfilterthird(option)"
+        :value="option.num"  >{{option.name}}</option>
+    </select>
+    <a class="btn" @click="newitem">添加新题目</a>
+  </div>
+  <br/>
+  <table>
+    <thead>
+      <tr>
+        <td v-for="(item, index) in tablehead">{{item.name}}</td>
+        <td>操作</td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr v-for="question in questionlist">
+        <td v-for="(item, index) in tablehead">
+          <template v-if="!item.type">
+            <span>
+              {{question[item.key]}}
+            </span>
+          </template>
+          <template v-if="item.type == 'select'">
+            <span>
+              {{options[item.option][question[item.key]].name}}
+            </span>
+          </template>
+          <template v-if="item.type=='date'">
+            <span>
+              {{question[item.key] ? new Date(question[item.key]).toLocaleString() : ''}}
+            </span>
+          </template>
+          <template v-if="item.type=='list'">
+            <div v-for="li,lik in question[item.key]">
+              选项:{{li}}<br/>
+              介绍:{{question.optiontips[lik]}}
+            </div>
+          </template>
+        </td>
+        <td>
+          <a @click="detail(question)">查看详情</a>
+          <!-- <a @click="save(question)">保存</a> -->
+          <a @click="remove(question)">删除</a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="pager">
+    <div class="page" @click="page('start')">第一页</div>
+    <div v-if="pager.page >3">...</div>
+    <div class="page" @click="page(-2)" v-if="pager.page >2">{{pager.page-2}}</div>
+    <div class="page" @click="page(-1)" v-if="pager.page >1">{{pager.page-1}}</div>
+    <div class="page now" @Click="page(0)">{{pager.page}}</div>
+    <div class="page" @click="page(1)" v-if="pager.page <Math.ceil(pager.total/pager.limit)">{{pager.page+1}}</div>
+    <div class="page" @click="page(2)" v-if="pager.page <Math.ceil(pager.total/pager.limit)-1">{{pager.page+2}}</div>
+    <div v-if="pager.page < (Math.ceil(pager.total/pager.limit)-2)">...</div>
+    <div class="page" @click="page('end')">最后页</div>
+  </div>
+  <br/>
+  <div :class="classname">
+    <div class="detail">
+      <ul class="detailul">
+        <li v-for="(item, itemindex) in detailhead">
+          <label>{{item.name}}</label>
+          <span>
+            <template v-if="!item.type">
+              <span>
+                <input type="text" v-model="questiondetail[item.key]" :disabled="!(item.edit)" />
+              </span>
+            </template>
+            <template v-if="item.type=='number'">
+              <span>
+                <input type="number" v-model="questiondetail[item.key]" :disabled="!(item.edit)" />
+              </span>
+            </template>
+            <template v-if="item.type=='numberpoint'">
+              <span>
+                <input type="number" v-model="questiondetail[item.key]" :disabled="!(item.edit)" />
+                <div class="doublebtn rectbtn" @click="doublepoint($event,item.key)"></div>
+              </span>
+            </template>
+            <template v-if="item.type=='numberbtn'">
+              <span>
+                <span>{{questiondetail[item.key]}}</span>
+                <div class="addbtn rectbtn" @click="addround($event,item.key)"></div>
+              </span>
+            </template>
+            <template v-if="item.type=='date'">
+              <span>
+                <input type="datetime-local"
+                  :value="toDateStr(questiondetail[item.key]||new Date(),item.key)"
+                  @change="changetime($event,item.key)"
+                 :disabled="!(item.edit)"
+                />
+              </span>
+            </template>
+            <template v-if="item.type=='area'">
+              <span>
+                <textarea
+                  v-model="questiondetail[item.key]"
+                  :disabled="!(item.edit)"
+                  >
+                </textarea>
+              </span>
+            </template>
+            <template v-if="item.type=='select'">
+              <select v-model="questiondetail[item.key]" @change="changedetail" :disabled="!(item.edit)">
+                <option v-for="(v, k) in options[item.option]"
+                  v-show="item.change ? item.change(questiondetail,v) : true"
+                  :value="v.num"
+                  >{{v.name}}</option>
+              </select>
+            </template>
+            <template v-if="item.type=='list'">
+              <div v-for="(li, index) in questiondetail[item.key]">
+                选项：<br/>
+                <input type='text' v-model='questiondetail[item.key][index]' /><br/>
+                介绍：<br/>
+                <textarea v-model='questiondetail.optiontips[index]'></textarea><br/>
+                <a @click="deleteanswer(questiondetail[item.key], questiondetail.optiontips, index)">删除答案</a>
+              </div>
+              <a @click="addanswer(questiondetail[item.key], questiondetail.optiontips)">新增答案</a>
+            </template>
+          </span>
+        </li>
+      </ul>
+      <br/>
+      <div>
+        <a class="btn" @click="cancel">取消</a>
+        <a class="btn" @click="save">保存</a>
+      </div>
+    </div>
+  </div>
+</div>

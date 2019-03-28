@@ -1,0 +1,31 @@
+<div class="guess">
+  <div class="guess-p basket">
+  	<div v-for="item in goods" class="basketitem">
+  		<div>
+  			<input type="checkbox" @change="change($event,item)" v-model="item.checked" />
+  		</div>
+  		<div><img :src="item.pic"/></div>
+  		<div>
+	  		<div>商家名称：{{item.shopname}}</div>
+	  		<div>品名：{{item.name}}</div>
+			<div>价格：<span style="color:#f60">¥{{item.price}}</span></div>
+			<div class="cal">
+				<div @click="minus(item)">-</div>
+				<div>{{item.num}}</div>
+				<div @click="plus(item)">+</div>
+			</div>
+			<div>{{item.has > 0 ? `有货；总量：${item.has}` : '售罄'}}</div>
+		</div>
+  	</div>
+  	<div  class="basketall">
+  		<div>
+  			<div>购物所需的消费点数: <span style="color:#f60">{{total}}</span></div>
+  			<div>当前用户持有的消费点数: <span style="color:#f60">{{(user || {}).coin || 0}}</span></div>
+  		</div>
+  		<div>
+	  		<button :disabled="canbuy" @click="buy">参与兑奖</button><br/>
+	  		<span>目前只开放上午11-12点和下午3-4点购物时间</span>
+	  	</div>
+  	</div>
+  </div>
+</div>

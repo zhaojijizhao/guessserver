@@ -1,0 +1,15 @@
+<script type="text/template">
+<div class="person-list">
+  <div class="head">
+    用户：<%=cell%>
+  </div>
+  <%_.each(list,function(v,k){%>
+    <div class="item">
+      <p><label>竞猜名称</label><%=v.name%></p>
+      <p><label>竞猜选项</label><%=v.option%></p>
+      <p><label>竞猜日期</label><%=v.date%></p>
+      <p><label>竞猜数量</label><%=v.num%></p>
+    </div>
+  <%})%>
+</div>
+</script>

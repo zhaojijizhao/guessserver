@@ -1,0 +1,20 @@
+<div>
+  <div class="nav">
+    <div class="link-block">
+      <i class="link-btn icon"></i>
+      <div class="mask"></div>
+      <div class="links">
+        <router-link v-for="nav in navlist" :to="nav.link">
+          {{nav.name}}
+        </router-link>
+      </div>
+    </div>
+    <div class="title">一起竞猜吧</div>
+    <router-link to="" class="profile-link">
+      <i class="icon"></i>
+    </router-link>
+  </div>
+  <div class="main" id="main">
+    <router-view></router-view>
+  </div>
+</div>

@@ -1,0 +1,99 @@
+<div class="guess">
+  <div class="guess-block" v-for="v,k in guesslist">
+    <div class="guess-headline">
+      {{v.name}}
+    </div>
+    <div class="guess-item" v-if="item" v-for="item,key in v.list">
+      <div class="title-line">
+        <span style="width: 350px;display: block;flex: auto;">{{item.name}}</span>
+        <span>第 {{item.round}} 轮</span>
+        <span style="flex:none;padding: 0 10px;width: 150px">参与人数 {{item.times}}</span>
+        <span style="flex:none;padding: 0 10px;width: 150px">奖池总点数 {{item.totalpoint}}</span>
+        <span>
+          <button class="btn-join" @click="changeShow(item,key)">参与</button>
+        </span>
+      </div>
+      <div class="content-area" v-show="item.show">
+        <div class="info" style="overflow: hidden;">
+          <span style="float: left;line-height: 24px; padding: 10px">{{item.intro}}</span>
+          <span style="overflow: hidden;display: inline-block; float: right;vertical-align: top;">
+            <div style="float:right; margin-top:10px;">
+              <div class="datasetconfig" :data-title="item.question"
+                :data-desc="item.question" 
+                :title="item.question"
+                 :data-url="'http://47.104.184.132:2000/web/index#/share?id='+item.num" data-pic="http://47.104.184.132:2000/img/web/img_logo.gif" data-sites="weibo,weixin,qzone">
+              </div>
+            </div>
+          </span>
+        </div>
+        <p class="choose">
+          <span>总参与人次</span>
+          <span>
+            {{item.times}}
+          </span>
+          <span>奖池总点数</span>
+          <span>
+            {{item.totalpoint}}
+          </span>
+          <span>额外奖励</span>
+          <span>
+            {{item.awardpoint}}点 {{awardmodes[item.awardmode]}}
+          </span>
+          <span>分配模式</span>
+          <span>
+            {{awardtypes[item.awardtype]}}
+          </span>
+        </p>
+        <p class="choose">
+          <span style="width:200;flex: none">竞猜选项</span>
+          <span style="flex:1;flex-direction: row;justify-content: flex-start;">
+            {{item.question}}&nbsp;&nbsp;&nbsp;
+            <select @change="changeChoose($event,k, key)">
+              <option v-for="v,k in item.options">
+                {{v}}
+              </option>
+            </select>
+          </span>
+        </p>
+        <p class="choose"  style="align-items:flex-start;justify-content:flex-start;">
+          {{(item.option && item.option.optiontip) || item.optiontips[0]}}
+        </p>
+        <p class="choose">
+          <span style="width:200;flex: none">当前选项选择人次</span>
+          <span style="flex:1;flex-direction: row;justify-content: flex-start;">
+            {{item.optionpeople[(item.option || {}).optionid || 0] || 0}}
+          </span>
+        </p>
+        <p class="choose">
+          <span style="width:200;flex: none">当前选项总点数</span>
+          <span style="flex:1;flex-direction: row;justify-content: flex-start;">
+            {{item.optionpoint[(item.option || {}).optionid || 0] || 0}}
+          </span>
+        </p>
+        <p class="choose">
+          <span style="width:200;flex: none">竞猜所需点数</span>
+          <span style="flex:1;flex-direction: row;justify-content: flex-start;">{{item.perpoint}}/次</span>
+        </p>
+        <p class="choose">
+          <span style="width:200;flex: none">
+            选择次数
+          </span>
+          <span style="flex:1;flex-direction: row;justify-content: flex-start;">
+            <input v-model="item.choose" />
+            次
+          </span>
+        </p>
+        <p class="choose">
+          <span style="width:200;flex: none">
+             <button @click="submit(item)">确认</button>
+          </span>
+          <span style="flex:1;flex-direction: row;justify-content: flex-start;">
+            
+          </span>
+        </p>
+
+      </div>
+    </div>
+    <br/>
+  </div>
+</div>

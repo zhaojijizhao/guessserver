@@ -1,0 +1,35 @@
+<div class="main">
+  <div>
+  	<table>
+  		<thead>
+  			<tr>
+  				<td width="200">奖励名称</td>
+  				<td width="200">奖励游戏点数</td>
+          <td width="200">奖励消费点数</td>
+          <td width="200">奖励倍数</td>
+  				<td width="200">操作</td>
+  			</tr>
+  		</thead>
+  		<tbody>
+  			<tr v-for="(item, key) in awards">
+		  		<td>{{item.name}}</td>
+		  		<td><input type="number" v-model="item.point"/></td>
+          <td><input type="number" v-model="item.coin"/></td>
+          <td>
+              <select type="number" v-model="item.bouns">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="10">10</option>
+                <option value="100">100</option>
+              </select>
+          </td>
+		  		<td><a @click="save(item)">更新</a></td>
+		  	</tr>
+  		</tbody>
+  	</table>
+  	
+  </div>
+</div>

@@ -1,0 +1,98 @@
+<div class="mainin">
+  <div class="info">
+    <div class="time">{{timestr}}</div>
+    <div class="input">
+      <template v-if="!user">
+        <span>用户名：</span>
+        <span><input v-model="login.cell" /></span>
+        <span>密 码：</span>
+        <span><input type="password" v-model="login.psw" /></span>
+        <input type="checkbox" v-model="login.remember" checked />记住密码&nbsp;&nbsp;
+        <button class="login-btn" @click="login">登陆</button>&nbsp;&nbsp;
+        <a href="#/index/sign">立即注册</a>
+      </template>
+      <template v-if="user">
+        <span>您好：</span>
+        <span>{{user.cell}}</span>
+        &nbsp;&nbsp;
+        <a href="#/index/search">查询</a>
+        &nbsp;&nbsp;
+        <span class="out-btn" @click="logout">退出</span>
+      </template>
+    </div>
+  </div>
+  <div class="content">
+    <ul class="tabline">
+      <li class="on">查询内容</li>
+    </ul>
+    <div class="form" style="padding: 20px;">
+    	<template v-if="user">
+    		<h2>用户情况</h2>
+    		<br/>
+			<div class="tdd">
+				<div>
+					<div>用户手机号</div>
+					<div>{{user.cell}}</div>
+				</div>
+				<br/>
+				<div>
+					<div>游戏点数</div>
+					<div>{{user.point}}</div>
+				</div>
+				<br/>
+				<div>
+					<div>消费点数</div>
+					<div>{{user.coin}}</div>
+				</div>
+				<br/>
+				<div>
+					<div>消费额度</div>
+					<div>{{user.limit}}</div>
+				</div>
+				<br/>
+				<div>
+					<div>竞猜次数</div>
+					<div>{{user.guess.length}}</div>
+				</div>
+				<br/>
+				<div>
+					<div>本月已登录天数</div>
+					<div>{{user.logindays}}</div>
+				</div>
+			</div>
+			<br/>
+			<br/>
+			<h2>竞猜记录</h2>
+			<br/>
+			<table class="bd">
+				<thead>
+					<tr>
+						<td>竞猜编号</td>
+						<td>题目名称</td>
+						<td>起始日期</td>
+						<td>截止日期</td>
+						<td>最终结果</td>
+						<td>总点数</td>
+						<td>总人次</td>
+						<td>目前状态</td>
+						<td>奖励分配情况</td>
+					</tr>
+				</thead>
+				<tbody>
+					<tr v-for="v,k in guess">
+						<td>{{v.pointid}}</td>
+						<td>{{v.question}}</td>
+						<td>{{new Date(v.created_at).toLocaleString()}}</td>
+						<td>{{new Date(v.date).toLocaleString()}}</td>
+						<td>{{getresult(v)}}</td>
+						<td>{{v.item.totalpoint}}</td>
+						<td>{{v.item.times}}</td>
+						<td>{{v.item.state == 0 ? '进行中': '结束'}}</td>
+						<td>{{(v.final == v.optionid) ? ('获得'+v.pit*v.perpoint+'点奖励') :''}}</td>
+					</tr>
+				</tbody>
+			</table>
+		</template>
+    </div>
+  </div>
+</div>

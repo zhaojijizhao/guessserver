@@ -1,0 +1,71 @@
+<div class="mainin">
+  <div class="info">
+    <div class="time">{{timestr}}</div>
+    <div class="input">
+      <template v-if="!user">
+        <span>用户名：</span>
+        <span><input v-model="login.cell" /></span>
+        <span>密 码：</span>
+        <span><input type="password" v-model="login.psw" /></span>
+        <input type="checkbox" v-model="login.remember" checked />记住密码&nbsp;&nbsp;
+        <button class="login-btn" @click="login">登陆</button>&nbsp;&nbsp;
+        <a href="#/index/sign">立即注册</a>
+      </template>
+      <template v-if="user">
+        <span>您好：</span>
+        <span>{{user.cell}}</span>
+        &nbsp;&nbsp;
+        <a href="#/index/search">查询</a>
+        &nbsp;&nbsp;
+        <span class="out-btn" @click="logout">退出</span>
+      </template>
+    </div>
+  </div>
+  <div class="content">
+    <ul class="tabline">
+      <li class="on">用户注册</li>
+    </ul>
+    <div class="form">
+      <div class="form-line">
+        <label>注册手机号码：</label>
+        <input v-model="form.cell" />
+      </div>
+      <div class="form-line">
+        <label>注册码：</label>
+        <input v-model="form.code" /> *目前开放注册码注册
+      </div>
+      <div class="form-line">
+        <label>设置登录密码：</label>
+        <input type="password" v-model="form.psw" />
+      </div>
+      <div class="form-line">
+        <label>密码确认：</label>
+        <input type="password" v-model="form.check"/>
+      </div>
+      <div class="form-line">
+        <label><input type="checkbox" v-model="form.read" /></label>
+        <span @click="item">我已阅读注册条款和免责申明</span>
+      </div>
+      <div class="form-line">
+        <label>&nbsp;</label>
+        <button @click="forget">忘记密码</button>
+      </div>
+      <div class="form-line">
+        <label>&nbsp;</label>
+        <button @click="sign" :disabled="!form.read">立即注册</button>
+      </div>
+  </div>
+  <div class="pop" v-show="sendshow">
+    <div class="popin">
+      <p>可以随时通过注册手机向13888888888，<br/>发送新密码进行更新。</p><br/>
+      <button @click="closesend">关闭</button>
+    </div>
+  </div>
+  <div class="pop" v-show="popshow">
+    <div class="popin">
+      <p>法律声明相关内容</p>
+      <p>可以随时以注册手机向短信号码????发送新密码完成密码更新工作</p>
+      <button @click="closeitem">关闭</button>
+    </div>
+  </div>
+</div>

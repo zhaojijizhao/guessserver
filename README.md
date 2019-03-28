@@ -1,0 +1,272 @@
+# guess
+guess whole site
+
+mongod --config ./data/mongod.cfg
+
+1.注册
+url:/user/sign,
+type:'post',
+request:
+{
+	user:{
+		cell:"13818754347",
+		password:"123456"
+	}
+},
+response:
+{
+	code:200,
+	msg:'success',//error的错误提示
+	user:{
+		uid:"1",
+		cell:"13818754347",
+		token:'9sdufsfys87sd7f8sf',//用户唯一认证登录code
+	}
+}
+2.登录
+url:/user/login,
+type:'post',
+request:
+{
+	user:{
+		cell:"13818754347",
+		password:"123456"
+	}
+},
+response:
+{
+	code:200,
+	msg:'success',//error的错误提示
+	user:{
+		uid:"1",
+		cell:"13818754347",
+		token:'9sdufsfys87sd7f8sf',//用户唯一认证登录code
+	}
+}
+3.竞猜主目录
+url:/guessmenu,
+type:'get',
+request:
+{
+},
+response:
+{
+	code:200,
+	msg:'success',//error的错误提示
+	guessmenu:{
+		"name":"热点竞猜",
+		"list":[
+			{
+				"name":"个人信息与记录",
+				"link":"/mobile/guessmenu/1",
+				"off":false//默认false，on表示该栏目暂没有开启
+			},
+			{
+				"name":"体育赛事",
+				"link":"/mobile/guessmenu/2",
+				"off":false
+			},
+			{
+				"name":"文化娱乐",
+				"link":"/mobile/guessmenu/3",
+				"off":false
+			},
+			{
+				"name":"经济时事",
+				"link":"/mobile/guessmenu/4",
+				"off":false
+			},
+			{
+				"name":"站点公告",
+				"link":"/mobile/guessmenu/5",
+				"off":false
+			}
+		]
+	}
+}
+4.竞猜一级目录（主目录进去后的列表）
+url:/guessmenu/:id,//后面直接加id，对应上个接口的link
+type:'get',
+request:
+{
+},
+response:
+{
+	code:200,
+	msg:'success',//error的错误提示
+	guessmenu:{
+		"name":"体育赛事",
+		"list":[
+			{
+				"name":"足球天地",
+				"link":"/mobile/guesslist/1",
+				"off":false
+			},
+			{
+				"name":"篮球世界",
+				"link":"/mobile/guesslist/2",
+				"off":false
+			},
+			{
+				"name":"急速赛车",
+				"link":"/mobile/guesslist/3",
+				"off":false
+			},
+			{
+				"name":"对抗搏击",
+				"link":"/mobile/guesslist/4",
+				"off":false
+			},
+			{
+				"name":"奥运风云",
+				"link":"/mobile/guesslist/5",
+				"off":false
+			}
+		]
+	}
+}
+5.竞猜二级目录（一级目录进去后的列表）
+url:/guesslist/:id,//后面直接加id，对应上个接口的link
+type:'get',
+request:
+{
+},
+response:
+{
+	code:200,
+	msg:'success',//error的错误提示
+	guesslist:{
+		"name":"足球天地",
+		"list":[
+			{
+				"name":"英格兰赛场",
+				"list":[
+						{
+							"name":"足总杯冠军",//竞猜标题
+							"date":"2015.8.20",//截止日期
+							"link":"/mobile/guessdetail/1"//详情页链接
+						},
+						{
+							"name":"英超冠军",
+							"date":"2015.9.15",
+							"link":"/mobile/guessdetail/2"
+						},
+						{
+							"name":"英冠联赛冠军",
+							"date":"2015.7.22",
+							"link":"/mobile/guessdetail/3"
+						}
+					]
+			},
+			{
+				"name":"西班牙赛场",
+				"list":[
+					{
+						"name":"西班牙国家杯冠军",
+						"date":"2015.9.10",
+						"link":"/mobile/guessdetail/4"
+					},
+					{
+						"name":"西甲联赛冠军",
+						"date":"2015.5.30",
+						"link":"/mobile/guessdetail/5"
+					},
+					{
+						"name":"西乙联赛冠军",
+						"date":"2015.8.13",
+						"link":"/mobile/guessdetail/6"
+					}
+				]
+			},
+			{
+				"name":"意大利赛场",
+				"list":[
+					{
+						"name":"意大利国家杯冠军",
+						"date":"2015.9.22",
+						"link":"/mobile/guessdetail/7"
+					},
+					{
+						"name":"意甲联赛冠军",
+						"date":"2015.6.18",
+						"link":"/mobile/guessdetail/8"
+					},
+					{
+						"name":"意乙联赛冠军",
+						"date":"2015.9.16",
+						"link":"/mobile/guessdetail/9"
+					}
+				]
+			}
+		]
+	}
+}
+6.竞猜详情页接口（二级目录进去）
+url:/guessdetail/:id,//后面直接加id，对应上个接口的link
+type:'get',
+request:
+{
+},
+response:
+{
+	code:200,
+	msg:'success',//error的错误提示
+	guessdetail:{
+		"name":"英超冠军",//竞猜标题
+		"data":{
+			"name":"英超冠军",//详情标题
+			"round":8,//竞猜轮数量
+			"date":"2015.10.20",//截止日期
+			"perpoint":10,//单次所需点数
+			"times":3920,//有效人次
+			"totlpoint":913847,//奖池总点数
+			"state":"进行中",//竞猜状态
+			"intro":"英格兰足球超级联赛（Premier League）[通常简称“英超”，是英格兰足球总会属下的职业足球联赛，欧洲五大联赛之一，由20支球队组成。由超级联盟负责具体运作。英格兰超级联赛成立于1992年2月20日，是英格兰联赛系列的最高等级联赛，其前身是英格兰足球甲级联赛。每个赛季结束积分榜末三位降入第二级别的英格兰足球冠军联赛]。",//竞猜简介（不可更新）
+			"recent":"这是切尔西截止5月5日的情况：<br/> 目前切尔西共经历过20场比赛，14胜5负1平，下一场对阵曼联。",//竞猜最近介绍（可以更新）
+			"guess":{
+				"question":"选择您想竞猜的冠军球队",//竞猜问题
+				"options":[
+					{
+						"id":1,//选项id
+						"name":"曼联"//选项名称
+					},
+					{
+						"id":2,
+						"name":"曼城"
+					},
+					{
+						"id":3,
+						"name":"切尔西"
+					},
+					{
+						"id":4,
+						"name":"阿森纳"
+					},
+					{
+						"id":5,
+						"name":"皇马"
+					}
+				]
+			}
+		}
+	}
+}
+7.竞猜接口
+url:/guess/:id,//后面直接加id，对应上个接口的link
+type:'post',
+request:
+{
+	user:{
+		uid:'1',
+		token:"9sdufsfys87sd7f8sf"
+	},
+	guess:{
+		option: "1",//选项id
+		pit: 1//竞猜投注数量
+	}
+},
+response:
+{
+	code:200,
+	msg:'success',//error的错误提示
+}
