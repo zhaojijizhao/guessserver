@@ -1,14 +1,17 @@
 <div class="user-form">
-  <headCom @back="back" />
-  <div v-show='stage==2'>
+  <headCom
+  	v-bind:stage="stage"
+		v-bind:slide="slide"
+		@back="back" />
+  <div v-show='stage==1'>
 	  <div class="swiper-container">
 	    <div class="swiper-wrapper">
 	    	<div class="swiper-slide">
 	    		<mainCom />
-
 	    	</div>
 	    	<div class="swiper-slide">
-	    		<registCom />
+	    		<registCom
+	    			@finish="registfinish" />
 	    	</div>
 	    	<div class="swiper-slide">
 	      	<navCom v-bind:stage='stage'
@@ -23,5 +26,7 @@
   <gamelistCom v-if='stage==6'/>
   <gamescanCom v-if='stage==7'/>
   <mapCom v-if='stage==4' />
-  <surveyCom v-if='stage==1' />
+  <surveyCom
+  	@finish="surveyfinish"
+  	v-if='stage==5' />
 </div>

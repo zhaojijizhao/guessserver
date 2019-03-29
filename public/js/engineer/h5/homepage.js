@@ -18,7 +18,8 @@ define(['jquery','underscore','vue','helper','text!/html/engineer/h5/homepage.ht
       template: homepageTpl,
       data: function(){
         return {
-          stage: 1
+          stage: 1,
+          slide: 0,
         }
       },
       methods: {
@@ -40,12 +41,24 @@ define(['jquery','underscore','vue','helper','text!/html/engineer/h5/homepage.ht
           } else if (page == -2) {
             window.location.href = '';
           }
+        },
+        surveyfinish() {
+          this.back();
+        },
+        registfinish() {
+          this.back();
+          this.swiper.slideNext();
         }
       },
       mounted: function(){
         this.swiper = new Swiper ('.swiper-container', {
           direction: 'vertical',
           loop: false,
+          on:{
+            slideChange: () => {
+              this.slide = (this.swiper || {}).activeIndex || 0;
+            },
+          },
         })
       },
       components: {

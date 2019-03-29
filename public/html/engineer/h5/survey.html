@@ -5,15 +5,15 @@
 	</div>
 	<div class='answer'>
 			<div class='option'>
-				<input type='radio' />
+				<input type='radio' @change="change" value='1' name="p1" v-model='p1' />
 				<div>楼宇控制解决方案</div>
 			</div>
 			<div class='option'>
-				<input type='radio' />
+				<input type='radio' @change="change" value='2' name="p1" v-model='p1' />
 				<div>电能质量管理，如仪表、谐波检测、电容电抗等</div>
 			</div>
 			<div class='option'>
-				<input type='radio' />
+				<input type='radio' @change="change" value='3' name="p1" v-model='p1' />
 				<div>平台集成，能效管理及运维平台，手术室一体化管控平台用电安全，比如备用电源、绝缘监测等供电持续性方案从建设到维保的全生命周期服务</div>
 			</div>
 	</div>
@@ -22,15 +22,15 @@
 	</div>
 	<div class='answer'>
 			<div class='option'>
-				<input type='radio' />
+				<input type='radio' @change="change" value='1' name="p2" v-model='p2' />
 				<div>楼控系统方案</div>
 			</div>
 			<div class='option'>
-				<input type='radio' />
+				<input type='radio' @change="change" value='2' name="p2" v-model='p2' />
 				<div>能源管理解决方案</div>
 			</div>
 			<div class='option'>
-				<input type='radio' />
+				<input type='radio' @change="change" value='3' name="p2" v-model='p2' />
 				<div>综合布线解决方案</div>
 			</div>
 	</div>
@@ -39,15 +39,15 @@
 	</div>
 	<div class='answer'>
 			<div class='option'>
-				<input type='radio' />
+				<input type='radio' @change="change" value='1' name="p3" v-model='p3' />
 				<div>非常强烈</div>
 			</div>
 			<div class='option'>
-				<input type='radio' />
+				<input type='radio' @change="change" value='2' name="p3" v-model='p3' />
 				<div>感觉一般</div>
 			</div>
 			<div class='option'>
-				<input type='radio' />
+				<input type='radio' @change="change" value='3' name="p3" v-model='p3' />
 				<div>几乎没有</div>
 			</div>
 	</div>
@@ -56,15 +56,15 @@
 	</div>
 	<div class='answer'>
 			<div class='option'>
-				<input type='radio' />
+				<input type='radio' @change="change" value='1' name="p4" v-model='p4' />
 				<div>能</div>
 			</div>
 			<div class='option'>
-				<input type='radio' />
+				<input type='radio' @change="change" value='2' name="p4" v-model='p4' />
 				<div>不能</div>
 			</div>
 			<div class='option'>
-				<input type='radio' />
+				<input type='radio' @change="change" value='3' name="p4" v-model='p4' />
 				<div>不清楚</div>
 			</div>
 	</div>
@@ -73,19 +73,19 @@
 	</div>
 	<div class='answer'>
 			<div class='option'>
-				<input type='radio' />
+				<input type='radio' @change="change" value='1' name="p5" v-model='p5' />
 				<div>可能性及稳定性</div>
 			</div>
 			<div class='option'>
-				<input type='radio' />
+				<input type='radio' @change="change" value='2' name="p5" v-model='p5' />
 				<div>大数据收集</div>
 			</div>
 			<div class='option'>
-				<input type='radio' />
+				<input type='radio' @change="change" value='3' name="p5" v-model='p5' />
 				<div>便捷施工</div>
 			</div>
 			<div class='option'>
-				<input type='radio' />
+				<input type='radio' @change="change" value='4' name="p5" v-model='p5'/>
 				<div>易于调试及维护</div>
 			</div>
 	</div>
@@ -94,20 +94,21 @@
 	</div>
 	<div class='answer'>
 			<div class='option'>
-				<input type='radio' />
+				<input type='radio' @change="change" value='1' name="p6" v-model='p6' />
 				<div>可能性及稳定性</div>
 			</div>
 			<div class='option'>
-				<input type='radio' />
+				<input type='radio' @change="change" value='2' name="p6" v-model='p6' />
 				<div>大数据收集</div>
 			</div>
 			<div class='option'>
-				<input type='radio' />
+				<input type='radio' @change="change" value='3' name="p6" v-model='p6' />
 				<div>便捷施工</div>
 			</div>
 			<div class='option'>
-				<input type='radio' />
+				<input type='radio' @change="change" value='4' name="p6" v-model='p6' />
 				<div>易于调试及维护</div>
 			</div>
 	</div>
+	<div class="btn" @click="submit"></div>
 </div>

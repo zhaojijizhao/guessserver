@@ -62,6 +62,10 @@ a{text-decoration: none;color: #666;}
   display:flex;
   flex-direction: column;
   justify-content: center;
+  transition: all .3s ease;
+  background-color: transparent;
+}
+.headline.on {
   background-color: #3dcd58;
 }
 .headline .banner {
@@ -154,6 +158,28 @@ a{text-decoration: none;color: #666;}
   background-image: url(/img/engineer/regist4.png);
   width: 100px;
   height: 35px;
+  background-size: 100% 100%;
+}
+.regpop {
+  width: 334px;
+  height: 249px;
+  background-image: url(/img/engineer/regist2.png);
+  background-size: 100% 100%;
+  position: absolute;
+  z-index: 2;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+.regbtnconfirm {
+  position: absolute;
+  z-index: 2;
+  left: 50%;
+  bottom: 20px;
+  transform: translate(-50%, 0);
+  width: 104px;
+  height: 32px;
+  background-image: url(/img/engineer/regist3.png);
   background-size: 100% 100%;
 }
 .nav {
@@ -308,5 +334,14 @@ a{text-decoration: none;color: #666;}
 }
 .survey .answer .option input {
   margin-right: 7px;
+}
+.survey .btn {
+  margin: 20px auto;
+  width: 92px;
+  height: 92px;
+  display: block;
+  background-image: url(/img/engineer/survey2.png);
+  background-position: 0 0;
+  background-size: 100% 100%;
 }
 

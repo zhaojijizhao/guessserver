@@ -3,23 +3,23 @@
 	<div  class="regsub">REGISTRATION INFORMATION</div>
 	<label class="reglabel">
 		<div>姓名</div>
-		<input />
+		<input v-model="name" />
 	</label>
 	<label class="reglabel">
 		<div>公司</div>
-		<input />
+		<input v-model="company" />
 	</label>
 	<label class="reglabel">
 		<div>手机</div>
-		<input />
+		<input v-model="phone" />
 	</label>
 	<label class="reglabel">
 		<div>邮箱</div>
-		<input />
+		<input v-model="mail" />
 	</label>
 	<label class="reglabel">
 		<div>职务</div>
-		<select>
+		<select v-model="work">
 				<option value=""></option>
 				<option value="1">架构师，设计师或工程师</option>
 				<option value="2">业务经销商</option>
@@ -40,14 +40,14 @@
 	</label>
 	<label  class="reglabellast">
 		<div class="checkbox">
-		<input type="checkbox" />
+		<input type="checkbox" v-model="check" />
 		</div>
 		<div class="tip">
 			我同意通过电子通信方式和（如电子邮件）接受施耐德电气及其附属公司的产品新闻和商业广告信息。有关更多详情，请在以下页脚处阅读我们的隐私政策。
 		</div>
 	</label>
-	<div class="regbtn"></div>
-	<div class="regpop">
-		<div class="regbtnconfirm"></div>
+	<div class="regbtn" @click="submit"></div>
+	<div class="regpop" v-show="showpop">
+		<div class="regbtnconfirm" @click="confirm"></div>
 	</div>
 </div>
