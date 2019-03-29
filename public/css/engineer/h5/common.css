@@ -33,6 +33,16 @@ a{text-decoration: none;color: #666;}
 }
 
 /*content style*/
+.layout {
+}
+.layout .layoutbg {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  z-index: 0;
+}
 .swiper-container {
   width: 100vw;
   height: 100vh;
