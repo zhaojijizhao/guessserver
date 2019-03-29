@@ -2,10 +2,10 @@ require(['/js/public/base.js'],function(Base){
   Base.setRequirejs();
   require(['jquery','underscore','vue','vuerouter','helper',
           '/js/engineer/h5/layout.js',
-          '/js/engineer/h5/sign.js',],
+          '/js/engineer/h5/homepage.js',],
     function($,_,Vue,VueRouter,Helper,
              layout,
-             sign) {
+             homepage) {
 
       Vue.use(VueRouter);
       var routes = [
@@ -13,12 +13,6 @@ require(['/js/public/base.js'],function(Base){
             path:'/index', component: layout,
             children: [
               { path:'homepage', component: homepage},
-              { path:'regist', component: regist},
-              { path:'nav', component: nav},
-              { path:'expo', component: expo},
-              { path:'map', component: map},
-              { path:'survey', component: survey},
-              { path: 'game', component: game},
               { path:'', redirect: 'homepage' }
             ]
           },
