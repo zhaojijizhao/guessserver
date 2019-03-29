@@ -5,7 +5,7 @@ var router = express.Router();
 router.get('/index', function(req, res, next) {
   if (req.headers.referer && req.headers.referer.indexOf('engineer') > -1) {
   	res.render('engineer/h5/index', {
-	    path:"web/index"
+	    path:"engineer/h5/index"
 	  });
   } else {
   res.render('web/index', {
