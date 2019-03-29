@@ -1,6 +1,7 @@
 <div class="survey">
-	<img class='title' src="/img/engineer/survey1.png" />
-	<div class='question'>
+	<!-- <img class='title' src="/img/engineer/survey1.png" /> -->
+	<img class='title' src="https://p1.music.126.net/KZncBPtGxNNuaM9_WpE7yg==/109951163961166624.png" />
+	<!--<div class='question'>
 		在您解除的医疗行业企业或项目过程中，您密切相关的是哪类解决方案及产品（多选，最多选3类）：
 	</div>
 	<div class='answer'>
@@ -108,6 +109,140 @@
 			<div class='option'>
 				<input type='radio' @change="change" value='4' name="p6" v-model='p6' />
 				<div>易于调试及维护</div>
+			</div>
+	</div>-->
+	<div class='question'>
+		在您负责的医院或医院的项目中，最迫切需了解以下哪些解决方案？（最多选三项）
+	</div>
+	<div class='answer'>
+			<div class='option'>
+				<input type='checkbox' @change="changep1" value='1' name="p1" />
+				<div>楼宇控制解决方案</div>
+			</div>
+			<div class='option'>
+				<input type='checkbox' @change="changep1" value='2' name="p1" />
+				<div>电能质量管理，如计量仪表、谐波监测、电客电抗等</div>
+			</div>
+			<div class='option'>
+				<input type='checkbox' @change="changep1" value='3' name="p1" />
+				<div>智能化管理软件，能效管理及运维平台，手术室一体化管控平台</div>
+			</div>
+			<div class='option'>
+				<input type='checkbox' @change="changep1" value='4' name="p1" />
+				<div>信息技术及通信系统，如数据机房监控、综合布线等</div>
+			</div>
+			<div class='option'>
+				<input type='checkbox' @change="changep1" value='5' name="p1" />
+				<div>中低压配电系统，比如中低压配电柜、配电箱及备用电源等</div>
+			</div>
+			<div class='option'>
+				<input type='checkbox' @change="changep1" value='6' name="p1" v-model='p1' />
+				<div>从建设到维保的全生命周期服务</div>
+			</div>
+	</div>
+	<div class='question'>
+		施耐德电气针对医疗不同场所提供的解决方案中，您最希望了解哪些？（最多选三项）
+	</div>
+	<div class='answer'>
+			<div class='option'>
+				<input type='checkbox' @change="changep2" value='1' name="p2" v-model='p2' />
+				<div>从端到端的智能配电系统</div>
+			</div>
+			<div class='option'>
+				<input type='checkbox' @change="changep2" value='2' name="p2" v-model='p2' />
+				<div>数据机房及布线系统</div>
+			</div>
+			<div class='option'>
+				<input type='checkbox' @change="changep2" value='3' name="p2" v-model='p2' />
+				<div>智能病房解决方案</div>
+			</div>
+			<div class='option'>
+				<input type='checkbox' @change="changep2" value='4' name="p2" v-model='p2' />
+				<div>手术室一体化解决方案</div>
+			</div>
+			<div class='option'>
+				<input type='checkbox' @change="changep2" value='5' name="p2" v-model='p2' />
+				<div>公共区域照明及空调控制</div>
+			</div>
+			<div class='option'>
+				<input type='checkbox' @change="changep2" value='6' name="p2" v-model='p2' />
+				<div>影像室可靠供电系统及制冷系统方案</div>
+			</div>
+			<div class='option'>
+				<input type='checkbox' @change="changep2" value='7' name="p2" v-model='p2' />
+				<div>基于云端的电力、电气资产及能效服务</div>
+			</div>
+	</div>
+	<div class='question'>
+		在您所在的医院或接触的项目中，对提升人员及能源效率的需求是否强烈?
+	</div>
+	<div class='answer'>
+			<div class='option'>
+				<input type='radio' @change="change" value='1' name="p3" v-model='p3' />
+				<div>非常强烈</div>
+			</div>
+			<div class='option'>
+				<input type='radio' @change="change" value='2' name="p3" v-model='p3' />
+				<div>感觉一般</div>
+			</div>
+			<div class='option'>
+				<input type='radio' @change="change" value='3' name="p3" v-model='p3' />
+				<div>几乎没有</div>
+			</div>
+	</div>
+	<div class='question'>
+		医院后勤管理过程中，您认为最急需解决的问题有哪些？（可多选）
+	</div>
+	<div class='answer'>
+			<div class='option'>
+				<input type='checkbox' @change="changep4" value='1' name="p4" />
+				<div>设备太多，信息量太大，运维困难</div>
+			</div>
+			<div class='option'>
+				<input type='checkbox' @change="changep4" value='2' name="p4" />
+				<div>厂家的电气设备数据解读困难</div>
+			</div>
+			<div class='option'>
+				<input type='checkbox' @change="changep4" value='3' name="p4" />
+				<div>设备操作复杂，出现故障时要花很长时间排查原因</div>
+			</div>
+			<div class='option'>
+				<input type='checkbox' @change="changep4" value='4' name="p4" />
+				<div>没有有效的工具帮助提前预知安全隐患导致突发事件频出</div>
+			</div>
+	</div>
+	<div class='question'>
+		您的医院或您面临的项目中是否有改造需求？
+	</div>
+	<div class='answer'>
+			<div class='option'>
+				<input type='radio' @change="change" value='1' name="p5" v-model='p5' />
+				<div>有</div>
+			</div>
+			<div class='option'>
+				<input type='radio' @change="change" value='2' name="p5" v-model='p5' />
+				<div>无</div>
+			</div>
+	</div>
+	<div class='question' v-if='p5 == 1'>
+		如果有，以下哪些您希望可以在改造前提供专业的咨询服务？（可多选）
+	</div>
+	<div class='answer'  v-if='p5 == 1'>
+			<div class='option'>
+				<input type='checkbox' @change="changep6" value='1' name="p6" />
+				<div>医院空调运行及能耗使用情况</div>
+			</div>
+			<div class='option'>
+				<input type='checkbox' @change="changep6" value='2' name="p6" />
+				<div>配电系统及电气设备运行状况分析</div>
+			</div>
+			<div class='option'>
+				<input type='checkbox' @change="changep6" value='3' name="p6" />
+				<div>传统设备及本地化软件到智能化设备、无线计量及云平台的升级改造</div>
+			</div>
+			<div class='option'>
+				<input type='checkbox' @change="changep6" value='4' name="p6" />
+				<div>电力扩容及实现主动预防的智能配电系统的升级改造</div>
 			</div>
 	</div>
 	<div class="btn" @click="submit"></div>
