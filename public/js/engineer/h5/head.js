@@ -7,6 +7,9 @@ define(['jquery','underscore','vue','helper','text!/html/engineer/h5/head.html']
         }
       },
       methods: {
+        back: function () {
+          this.$emit('back');
+        }
       },
       mounted: function(){
       }

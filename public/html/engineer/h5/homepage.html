@@ -1,14 +1,26 @@
 <div class="user-form">
-  站点还在建设中
-  <headCom />
-  <expoCom />
-  <gameCom />
-  <gamedetailCom />
-  <gamelistCom />
-  <gamescanCom />
-  <mainCom />
-  <mapCom />
-  <navCom />
-  <registCom />
-  <surveyCom />
+  <headCom @back="back" />
+  <div v-show='stage==1'>
+	  <div class="swiper-container">
+	    <div class="swiper-wrapper">
+	    	<div class="swiper-slide">
+	    		<mainCom />
+	    	</div>
+	    	<div class="swiper-slide">
+	    		<registCom />
+	    	</div>
+	      <div class="swiper-slide">
+	      	<navCom v-bind:stage='stage'
+	      		@jump='jump' />
+	      </div>
+	    </div>
+	 	</div>
+	</div>
+  <expoCom v-if='stage==2' />
+  <gameCom v-if='stage==3' />
+  <gamedetailCom v-if='stage==8'/>
+  <gamelistCom v-if='stage==6'/>
+  <gamescanCom v-if='stage==7'/>
+  <mapCom v-if='stage==4' />
+  <surveyCom v-if='stage==5' />
 </div>

@@ -1,5 +1,5 @@
 define(['jquery','underscore','vue','helper','text!/html/engineer/h5/gamelist.html'],
-  function($,_,Vue,Helper,gamedetailTpl){
+  function($,_,Vue,Helper,gamelistTpl){
     var gamelist = Vue.extend({
       template: gamelistTpl,
       data: function(){
