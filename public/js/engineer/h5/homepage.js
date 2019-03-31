@@ -19,7 +19,7 @@ define(['jquery','underscore','vue','helper','text!/html/engineer/h5/homepage.ht
       data: function(){
         return {
           stage: 1,
-          slide: 0,
+          slide: '',
         }
       },
       methods: {

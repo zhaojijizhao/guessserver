@@ -2,6 +2,7 @@ define(['jquery','underscore','vue','helper','text!/html/engineer/h5/regist.html
   function($,_,Vue,Helper,registTpl){
     var regist = Vue.extend({
       template: registTpl,
+      props: ['slide'],
       data: function(){
         return {
           name: '',
@@ -10,12 +11,11 @@ define(['jquery','underscore','vue','helper','text!/html/engineer/h5/regist.html
           mail: '',
           work: '',
           check: false,
-          showpop: false,
+          showpop: true,
         }
       },
       methods: {
         submit() {
-          return ;
           if (!this.name) {
             alert("姓名必填");
           } else if (!this.company) {
@@ -33,12 +33,12 @@ define(['jquery','underscore','vue','helper','text!/html/engineer/h5/regist.html
           } else if (!this.check) {
             alert("请确认条款");
           } else {
-            this.showpop = true;
+            alert("提交成功");
+            this.$emit("finish");
           }
         },
         confirm() {
-          alert("提交成功");
-          this.$emit("finish");
+          this.showpop = false;
         }
       },
       mounted: function(){

@@ -2,6 +2,7 @@ define(['jquery','underscore','vue','helper','text!/html/engineer/h5/gamelist.ht
   function($,_,Vue,Helper,gamelistTpl){
     var gamelist = Vue.extend({
       template: gamelistTpl,
+      props: ['classname'],
       data: function(){
         return {
         }

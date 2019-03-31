@@ -1,4 +1,13 @@
-<div class="reg">
+<div class="reg" v-bind:class="slide?'on':''">
+	<div class="headline on">
+		<!-- <img class="banner" src="/img/engineer/top1.png" /> -->
+		<img class="banner" src="https://p1.music.126.net/_e3ocKDveil6qh3Ijcz2uA==/109951163961161899.png" />
+		<!-- <img class="back" src="/img/engineer/exit.png" @click='back' /> -->
+		<img class="back" src="https://p1.music.126.net/eCkdwaw28dClhnsf79LaAA==/109951163961162346.png" @click='$emit("back")' />
+	</div>
+	<div class="regbg">
+		<img  src="https://p1.music.126.net/iWXSh17jmRJOLAan0CcGjg==/109951163961274412.png" />
+	</div>
 	<div class="regtitle">注册信息</div>
 	<div  class="regsub">REGISTRATION INFORMATION</div>
 	<label class="reglabel">
@@ -47,7 +56,7 @@
 		</div>
 	</label>
 	<div class="regbtn" @click="submit"></div>
-	<div class="regpop" v-show="showpop">
+	<div class="regpop" v-bind:class="showpop?'':'small'">
 		<div class="regbtnconfirm" @click="confirm"></div>
 	</div>
 </div>

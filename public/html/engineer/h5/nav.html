@@ -1,5 +1,12 @@
-<div class="nav">
+<div class="nav" v-bind:class="slide?'on':''">
+	<div class="headline">
+		<!-- <img class="banner" src="/img/engineer/top1.png" /> -->
+		<img class="banner" src="https://p1.music.126.net/_e3ocKDveil6qh3Ijcz2uA==/109951163961161899.png" />
+		<!-- <img class="back" src="/img/engineer/exit.png" @click='back' /> -->
+		<img class="back" src="https://p1.music.126.net/eCkdwaw28dClhnsf79LaAA==/109951163961162346.png" @click='$emit("back")' />
+	</div>
 	<div class="navtitle"></div>
+	<!-- <img class="navbg" src="https://p1.music.126.net/XFa33N_vQn6gKDTTYep8mQ==/109951163961327907.png" /> -->
 	<div class="navlinks">
 		<div class="navlink" @click="$emit('jump', 2)">展会信息</div>
 		<div class="navlink" @click="$emit('jump', -1)">数据加油站</div>
@@ -7,5 +14,7 @@
 		<div class="navlink" @click="$emit('jump', -2)">精彩瞬间</div>
 		<div class="navlink" @click="$emit('jump', 3)">互动游戏</div>
 		<div class="navlink" @click="$emit('jump', 5)">问卷调查</div>
+		<img class="bg" src="https://p1.music.126.net/XFa33N_vQn6gKDTTYep8mQ==/109951163961327907.png" />
+		<img class="navlogo" src="https://p1.music.126.net/6xhLVeWotNSNQg7BEBt0AA==/109951163961336527.png" />
 	</div>
 </div>

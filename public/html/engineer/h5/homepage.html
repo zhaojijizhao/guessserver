@@ -1,32 +1,46 @@
 <div class="user-form">
-  <headCom
-  	v-bind:stage="stage"
-		v-bind:slide="slide"
-		@back="back" />
   <div v-show='stage==1'>
 	  <div class="swiper-container">
 	    <div class="swiper-wrapper">
 	    	<div class="swiper-slide">
-	    		<mainCom />
+	    		<mainCom v-bind:slide="slide === 0"
+	    			@back="back" />
 	    	</div>
 	    	<div class="swiper-slide">
 	    		<registCom
-	    			@finish="registfinish" />
+	    			v-bind:slide="slide == 1"
+	    			@finish="registfinish"
+	    			@back="back" />
 	    	</div>
 	    	<div class="swiper-slide">
 	      	<navCom v-bind:stage='stage'
-	      		@jump='jump' />
+	      		v-bind:slide="slide == 2"
+	      		@jump='jump'
+	      		@back="back" />
+	      </div>
+	      <div class="swiper-slide">
+	      	<navCom v-bind:stage='stage'
+	      		v-bind:slide="slide == 2"
+	      		@jump='jump'
+	      		@back="back" />
 	      </div>
 	    </div>
 	 	</div>
 	</div>
-  <expoCom v-if='stage==2' />
-  <gameCom v-if='stage==3' />
-  <gamedetailCom v-if='stage==8'/>
-  <gamelistCom v-if='stage==6'/>
-  <gamescanCom v-if='stage==7'/>
-  <mapCom v-if='stage==4' />
+  <expoCom v-bind:classname="'stage==2'?'on':''"
+  	@back="back" />
+  <gameCom v-bind:classname="'stage==3'?'on':''"
+  	@back="back" />
+  <gamedetailCom v-bind:classname="'stage==8'?'on':''"
+  	@back="back"/>
+  <gamelistCom v-bind:classname="'stage==6'?'on':''"
+  	@back="back"/>
+  <gamescanCom v-bind:classname="'stage==7'?'on':''"
+  	@back="back"/>
+  <mapCom v-bind:classname="'stage==4'?'on':''"
+  	@back="back" />
   <surveyCom
   	@finish="surveyfinish"
-  	v-if='stage==5' />
+  	@back="back"
+  	v-bind:classname="'stage==5'?'on':''" />
 </div>
