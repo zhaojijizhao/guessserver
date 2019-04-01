@@ -1,34 +1,40 @@
 var database = require('../../database');
 
 var survey = new database.Schema({
-  num: {
-    type: String,
-    validate:/.+/
-  },
-  uid: {
+  id: {
     type: String,
     validate:/.+/,
-    default: 0
+    default: ""
   },
-  answer1: {
+  p1: {
     type: String,
     validate:/.+/,
-    default: 0
+    default: ""
   },
-  answer2: {
+  p2: {
     type: String,
     validate:/.+/,
-    default: 0
+    default: ""
   },
-  answer3: {
+  p3: {
     type: String,
     validate:/.+/,
-    default: 0
+    default: ""
   },
-  answer4: {
+  p4: {
     type: String,
     validate:/.+/,
-    default: 0
+    default: ""
+  },
+  p5: {
+    type: String,
+    validate:/.+/,
+    default: ""
+  },
+  p6: {
+    type: String,
+    validate:/.+/,
+    default: ""
   },
   created_at:{
     type: Date,

@@ -1,34 +1,35 @@
 var database = require('../../database');
 
 var user = new database.Schema({
-  num: {
-    type: String,
-    validate:/.+/
-  },
-  uid: {
+  id: {
     type: String,
     validate:/.+/,
-    default: 0
+    default: ""
   },
   name: {
     type: String,
     validate:/.+/,
-    default: 0
+    default: ""
   },
-  render: {
+  company: {
     type: String,
     validate:/.+/,
-    default: 0
+    default: ""
   },
-  occupation: {
+  phone: {
     type: String,
     validate:/.+/,
-    default: 0
+    default: ""
   },
-  age: {
+  mail: {
     type: String,
     validate:/.+/,
-    default: 0
+    default: ""
+  },
+  work: {
+    type: String,
+    validate:/.+/,
+    default: ""
   },
   created_at:{
     type: Date,

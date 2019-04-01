@@ -1,0 +1,32 @@
+<div class="main">
+  <table>
+    <thead>
+      <tr>
+        <td v-for="(item, index) in tablehead">{{item.name}}</td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr v-for="survey in surveylist">
+        <td v-for="(item, index) in tablehead">
+          <template v-if="!item.type">
+            <input type="text" v-model="survey[item.key]" :disabled="!(item.edit && survey.edit)">
+          </template>
+          <template v-if="item.type=='date'">
+            <span>{{new Date(survey[item.key]||new Date()).toLocaleString()}}</span>
+          </template>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="pager">
+    <div class="page" @click="page('start')">第一页</div>
+    <div v-if="pager.page >3">...</div>
+    <div class="page" @click="page(-2)" v-if="pager.page >2">{{pager.page-2}}</div>
+    <div class="page" @click="page(-1)" v-if="pager.page >1">{{pager.page-1}}</div>
+    <div class="page now" @Click="page(0)">{{pager.page}}</div>
+    <div class="page" @click="page(1)" v-if="pager.page <Math.ceil(pager.total/pager.limit)">{{pager.page+1}}</div>
+    <div class="page" @click="page(2)" v-if="pager.page <Math.ceil(pager.total/pager.limit)-1">{{pager.page+2}}</div>
+    <div v-if="pager.page < (Math.ceil(pager.total/pager.limit)-2)">...</div>
+    <div class="page" @click="page('end')">最后页</div>
+  </div>
+</div>

@@ -6,25 +6,17 @@ define(['jquery','underscore','vue','helper','text!/html/engineer/cms/layout.htm
         return {
           navlist: [
             {
-              name:"管理员",
-              link:"manager"
-            },
-            {
-              name:"注册用户",
+              name:"用户",
               link:"user"
             },
             {
-              name:"问卷信息",
-              link:"question"
+              name:"问卷",
+              link:"survey"
             },
             {
-              name:"打点统计",
+              name:"打点",
               link:"point"
             },
-            {
-              name:"编辑页面",
-              link:"edit"
-            }
           ]
         }
       }

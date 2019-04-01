@@ -12,6 +12,7 @@ var contactSchema = require('./schema/contact');
 var gameSchema = require('./schema/engineer/game');
 var surveySchema = require('./schema/engineer/survey');
 var userSchema = require('./schema/engineer/user');
+var pointSchema = require('./schema/engineer/point');
 
 var user = userSchema.user;
 var manager = managerSchema.manager;
@@ -29,6 +30,7 @@ var contact = contactSchema.contact;
 var engineergame = gameSchema.game;
 var engineersurvey = surveySchema.survey;
 var engineeruser = userSchema.user;
+var engineerpoint = pointSchema.point;
 
 var userModel = database.mongoose.model('user',user);
 var managerModel = database.mongoose.model('manager',manager);
@@ -46,6 +48,8 @@ var contactModel = database.mongoose.model('contact', contact);
 var engineergameModel = database.mongoose.model('engineergame', engineergame);
 var engineersurveyModel = database.mongoose.model('engineersurvey', engineersurvey);
 var engineeruserModel = database.mongoose.model('engineeruser', engineeruser);
+var engineerpointModel = database.mongoose.model('engineerpoint', engineerpoint);
+
 
 var collection = {
 	user: userModel,
@@ -63,6 +67,7 @@ var collection = {
 	engineergame: engineergameModel,
 	engineersurvey: engineersurveyModel,
 	engineeruser: engineeruserModel,
+	engineerpoint: engineerpointModel
 }
 
 module.exports = collection;
