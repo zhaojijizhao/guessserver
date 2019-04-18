@@ -9,10 +9,13 @@ var awardSchema = require('./schema/award');
 var corworkSchema = require('./schema/corwork');
 var contactSchema = require('./schema/contact');
 //engineer
-var gameSchema = require('./schema/engineer/game');
-var surveySchema = require('./schema/engineer/survey');
-var userSchema = require('./schema/engineer/user');
-var pointSchema = require('./schema/engineer/point');
+var engineergameSchema = require('./schema/engineer/game');
+var engineersurveySchema = require('./schema/engineer/survey');
+var engineeruserSchema = require('./schema/engineer/user');
+var engineerpointSchema = require('./schema/engineer/point');
+//salon
+var salonuserSchema = require('./schema/salon/user');
+var salonpointSchema = require('./schema/salon/point');
 
 var user = userSchema.user;
 var manager = managerSchema.manager;
@@ -27,10 +30,13 @@ var award = awardSchema.award;
 var corwork = corworkSchema.corwork;
 var contact = contactSchema.contact;
 //engineer
-var engineergame = gameSchema.game;
-var engineersurvey = surveySchema.survey;
-var engineeruser = userSchema.user;
-var engineerpoint = pointSchema.point;
+var engineergame = engineergameSchema.game;
+var engineersurvey = engineersurveySchema.survey;
+var engineeruser = engineeruserSchema.user;
+var engineerpoint = engineerpointSchema.point;
+//salon
+var salonuser = salonuserSchema.user;
+var salonpoint = salonpointSchema.point;
 
 var userModel = database.mongoose.model('user',user);
 var managerModel = database.mongoose.model('manager',manager);
@@ -49,6 +55,9 @@ var engineergameModel = database.mongoose.model('engineergame', engineergame);
 var engineersurveyModel = database.mongoose.model('engineersurvey', engineersurvey);
 var engineeruserModel = database.mongoose.model('engineeruser', engineeruser);
 var engineerpointModel = database.mongoose.model('engineerpoint', engineerpoint);
+//salon
+var salonuserModel = database.mongoose.model('salonuser', salonuser);
+var salonpointModel = database.mongoose.model('salonpoint', salonpoint);
 
 
 var collection = {
@@ -67,7 +76,9 @@ var collection = {
 	engineergame: engineergameModel,
 	engineersurvey: engineersurveyModel,
 	engineeruser: engineeruserModel,
-	engineerpoint: engineerpointModel
+	engineerpoint: engineerpointModel,
+	salonuser: salonuserModel,
+	salonpoint: salonpointModel
 }
 
 module.exports = collection;

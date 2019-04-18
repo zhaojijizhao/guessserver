@@ -59,7 +59,7 @@ define(['jquery','underscore','vue','helper','text!/html/engineer/cms/survey.htm
         getList: function(){
           var _this = this;
           Helper.ajax({
-            url:'/manage/engineer/survey',
+            url:'/engineer/manage/survey',
             data: {
               limit: _this.pager.limit,
               skip: _this.pager.limit*(_this.pager.page-1)
@@ -83,7 +83,7 @@ define(['jquery','underscore','vue','helper','text!/html/engineer/cms/survey.htm
         },
       },
       mounted: function(){
-        // this.getList();
+         this.getList();
       }
     });
     return survey;

@@ -1,4 +1,4 @@
-define(['jquery','underscore','vue','helper','text!/html/engineer/cms/user.html'],
+define(['jquery','underscore','vue','helper','text!/html/salon/cms/user.html'],
   function($,_,Vue,Helper,userTpl){
     var user = Vue.extend({
       template: userTpl,
@@ -54,7 +54,7 @@ define(['jquery','underscore','vue','helper','text!/html/engineer/cms/user.html'
         getList: function(){
           var _this = this;
           Helper.ajax({
-            url:'/engineer/manage/user',
+            url:'/salon/manage/user',
             data: {
               limit: _this.pager.limit,
               skip: _this.pager.limit*(_this.pager.page-1)

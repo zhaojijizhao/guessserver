@@ -13,29 +13,22 @@ router.get('/test', function(req, res, next) {
 
 router.post('/user', function(req, res, next) {
   var body = utils.parsebody(req.body);
-  utils.add('engineeruser', body.user, function(result){
+  utils.add('salonuser', body.user, function(result){
     res.json(body.user);
   }, res);
 });
 
 router.post('/survey', function(req, res, next) {
   var body = utils.parsebody(req.body);
-  utils.add('engineersurvey', body.survey, function(result){
+  utils.add('salonsurvey', body.survey, function(result){
     res.json(body.survey);
   }, res);
 });
 
 router.post('/point', function(req, res, next) {
   var body = utils.parsebody(req.body);
-  utils.add('engineerpoint', body.point, function(result){
+  utils.add('salonpoint', body.point, function(result){
     res.json(body.point);
-  }, res);
-});
-
-router.post('/game', function(req, res, next) {
-  var body = utils.parsebody(req.body);
-  utils.add('engineergame', body.game, function(result){
-    res.json(body.game);
   }, res);
 });
 

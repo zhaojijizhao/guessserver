@@ -17,6 +17,11 @@ var engineercms = require('./routes/engineer/cms');
 var engineermanage = require('./routes/engineer/manage');
 var engineerapi = require('./routes/engineer/api');
 
+//salon
+var saloncms = require('./routes/salon/cms');
+var salonmanage = require('./routes/salon/manage');
+var salonapi = require('./routes/salon/api');
+
 var app = express();
 
 // view engine setup
@@ -49,6 +54,11 @@ app.use('/engineer/h5', engineerh5);
 app.use('/engineer/cms', engineercms);
 app.use('/engineer/manage', engineermanage);
 app.use('/engineer/api', engineerapi);
+
+//salon
+app.use('/salon/cms', saloncms);
+app.use('/salon/manage', salonmanage);
+app.use('/salon/api', salonapi);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

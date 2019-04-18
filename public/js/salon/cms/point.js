@@ -1,7 +1,7 @@
-define(['jquery','underscore','vue','helper','text!/html/engineer/cms/user.html'],
-  function($,_,Vue,Helper,userTpl){
-    var user = Vue.extend({
-      template: userTpl,
+define(['jquery','underscore','vue','helper','text!/html/salon/cms/point.html'],
+  function($,_,Vue,Helper,pointTpl){
+    var point = Vue.extend({
+      template: pointTpl,
       data: function(){
         return {
           tablehead: [
@@ -11,38 +11,13 @@ define(['jquery','underscore','vue','helper','text!/html/engineer/cms/user.html'
               edit: false
             },
             {
-              name:"name",
-              key:"name",
-              edit: true
-            },
-            {
-              name:"company",
-              key:"company",
-              edit: true
-            },
-            {
-              name:"phone",
-              key:"phone",
-              edit: false
-            },
-            {
-              name:"mail",
-              key:"mail",
-              edit: false
-            },
-            {
-              name:"work",
-              key:"work",
-              edit: false
-            },
-            {
               name:"time",
               key:"created_at",
               edit: false,
               type: 'date'
             }
           ],
-          userlist: [],
+          pointlist: [],
           pager: {
             page: 1,
             total: 1,
@@ -54,14 +29,14 @@ define(['jquery','underscore','vue','helper','text!/html/engineer/cms/user.html'
         getList: function(){
           var _this = this;
           Helper.ajax({
-            url:'/engineer/manage/user',
+            url:'/salon/manage/point',
             data: {
               limit: _this.pager.limit,
               skip: _this.pager.limit*(_this.pager.page-1)
             },
             info: '获取列表',
             success:function(result){
-              _this.userlist = result.list;
+              _this.pointlist = result.list;
               _this.pager.total=result.count;
             }
           });
@@ -78,8 +53,8 @@ define(['jquery','underscore','vue','helper','text!/html/engineer/cms/user.html'
         },
       },
       mounted: function(){
-         this.getList();
+        this.getList();
       }
     });
-    return user;
+    return point;
 });

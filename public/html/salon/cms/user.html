@@ -6,13 +6,13 @@
       </tr>
     </thead>
     <tbody>
-      <tr v-for="point in pointlist">
+      <tr v-for="user in userlist">
         <td v-for="(item, index) in tablehead">
           <template v-if="!item.type">
-            <input type="text" v-model="point[item.key]" :disabled="!(item.edit && point.edit)">
+            <input type="text" v-model="user[item.key]" :disabled="!(item.edit && user.edit)">
           </template>
           <template v-if="item.type=='date'">
-            <span>{{new Date(point[item.key]||new Date()).toLocaleString()}}</span>
+            <span>{{new Date(user[item.key]||new Date()).toLocaleString()}}</span>
           </template>
         </td>
       </tr>

@@ -1,0 +1,8 @@
+<div>
+  <div class="nav">
+    <router-link v-for="nav in navlist" :to="nav.link">
+      {{nav.name}}
+    </router-link>
+  </div>
+  <router-view></router-view>
+</div>

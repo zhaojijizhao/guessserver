@@ -29,7 +29,7 @@ define(['jquery','underscore','vue','helper','text!/html/engineer/cms/point.html
         getList: function(){
           var _this = this;
           Helper.ajax({
-            url:'/manage/engineer/point',
+            url:'/engineer/manage/point',
             data: {
               limit: _this.pager.limit,
               skip: _this.pager.limit*(_this.pager.page-1)
@@ -53,7 +53,7 @@ define(['jquery','underscore','vue','helper','text!/html/engineer/cms/point.html
         },
       },
       mounted: function(){
-        // this.getList();
+        this.getList();
       }
     });
     return point;

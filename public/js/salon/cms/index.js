@@ -1,15 +1,13 @@
 require(['/js/public/base.js'],function(Base){
   Base.setRequirejs();
   require(['jquery','underscore','vue','vuerouter','helper',
-          '/js/engineer/cms/layout.js',
-          '/js/engineer/cms/user.js',
-          '/js/engineer/cms/point.js',
-          '/js/engineer/cms/survey.js',],
+          '/js/salon/cms/layout.js',
+          '/js/salon/cms/user.js',
+          '/js/salon/cms/point.js',],
     function($,_,Vue,VueRouter,Helper,
              layout,
              user,
-             point,
-             survey){
+             point){
 
       Vue.use(VueRouter);
       var routes = [
@@ -17,7 +15,6 @@ require(['/js/public/base.js'],function(Base){
             children:[
               { path:'user', component: user},
               { path:'point', component: point},
-              { path:'survey', component: survey},
               { path:'', redirect: 'user'}
             ]
           },
