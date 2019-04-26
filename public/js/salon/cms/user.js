@@ -40,7 +40,12 @@ define(['jquery','underscore','vue','helper','text!/html/salon/cms/user.html'],
               key:"created_at",
               edit: false,
               type: 'date'
-            }
+            },
+            {
+              name:"ip",
+              key:"ip",
+              edit: false
+            },
           ],
           userlist: [],
           pager: {

@@ -11,6 +11,11 @@ var point = new database.Schema({
     validate:/.+/,
     default: 0
   },
+  ip: {
+    type: String,
+    validate:/.+/,
+    default: 0
+  },
   created_at:{
     type: Date,
     default: Date.now

@@ -11,6 +11,16 @@ define(['jquery','underscore','vue','helper','text!/html/salon/cms/point.html'],
               edit: false
             },
             {
+              name:"ip",
+              key:"ip",
+              edit: false
+            },
+            {
+              name:"page",
+              key:"page",
+              edit: false
+            },
+            {
               name:"time",
               key:"created_at",
               edit: false,

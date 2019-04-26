@@ -6,6 +6,11 @@ var user = new database.Schema({
     validate:/.+/,
     default: ""
   },
+  ip: {
+    type: String,
+    validate:/.+/,
+    default: 0
+  },
   name: {
     type: String,
     validate:/.+/,
